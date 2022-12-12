@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model pants {
+  id       String  @id @default(cuid())
+  title    String
+  pieceUrl String?
+  tipe     String
+
+  priceInCents Int
+  quantity     Int
+}
+
+model shirt {
+  id       String  @id @default(cuid())
+  title    String
+  pieceUrl String?
+  tipe     String
+
+  priceInCents Int
+  quantity     Int
+}
+
+model Tshirts {
+  id       String @id @default(cuid())
+  title    String
+  pieceUrl String
+  tipe     String
+
+  priceInCents Int
+  quantity     Int
+}
+
+model blouses {
+  id       String @id @default(cuid())
+  title    String
+  pieceUrl String
+  tipe     String
+
+  priceInCents Int
+  quantity     Int
+}
