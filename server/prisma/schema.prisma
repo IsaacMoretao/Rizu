@@ -16,40 +16,64 @@ datasource db {
 
 model pants {
   id       String  @id @default(cuid())
+  code     String  @unique
   title    String
   pieceUrl String?
   tipe     String
 
-  priceInCents Int
-  quantity     Int
+  priceInCents  Int
+  quantityI     Int?
+  quantityII    Int?
+  quantityIII   Int?
+  quantityIIII  Int?
+  quantityV     Int?
+  quantityIV    Int?
+  quantityIIV   Int?
+  quantityIIIV  Int?
+  quantityIIIIV Int?
 }
 
 model shirt {
   id       String  @id @default(cuid())
+  code     String  @unique
   title    String
   pieceUrl String?
   tipe     String
 
   priceInCents Int
-  quantity     Int
+  quantityPP   Int?
+  quantityP    Int?
+  quantityM    Int?
+  quantityG    Int?
+  quantityGG   Int?
 }
 
 model Tshirts {
   id       String @id @default(cuid())
+  code     String @unique
   title    String
   pieceUrl String
   tipe     String
 
   priceInCents Int
-  quantity     Int
+  quantityPP   Int?
+  quantityP    Int?
+  quantityM    Int?
+  quantityG    Int?
+  quantityGG   Int?
 }
 
 model blouses {
   id       String @id @default(cuid())
+  code     String @unique
   title    String
   pieceUrl String
   tipe     String
 
   priceInCents Int
-  quantity     Int
+  quantityPP   Int?
+  quantityP    Int?
+  quantityM    Int?
+  quantityG    Int?
+  quantityGG   Int?
 }

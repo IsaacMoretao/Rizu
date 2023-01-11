@@ -1,6 +1,7 @@
 import Fastfy from 'fastify';
 import { PrismaClient } from '@prisma/client';
 import { z } from 'zod';
+import ShortUniqueId from 'short-unique-id';
 
 
 const prisma = new PrismaClient({
@@ -11,6 +12,7 @@ async function bootstrap() {
  const fastify = Fastfy({
   logger: true,
  })
+
 
  /* ######### - pants - ######### */
 
@@ -25,25 +27,64 @@ async function bootstrap() {
 
  fastify.post('/pants', async(request, reply) => {
 
+  const generate = new ShortUniqueId({ length: 6 })
+  const code = String(generate().toUpperCase());
+
+
   const createpants = z.object({
     title: z.string(),
     pieceUrl: z.string(),
     tipe: z.string(),
     priceInCents: z.number(),
-    quantity: z.number()
+    quantityI: z.number(),
+    quantityII: z.number(),
+    quantityIII: z.number(),
+    quantityIIII: z.number(),
+    quantityV: z.number(),
+    quantityIV: z.number(),
+    quantityIIV: z.number(),
+    quantityIIIV: z.number(),
+    quantityIIIIV: z.number(),
   })
 
-  const { title, pieceUrl, tipe, priceInCents, quantity } = createpants.parse(request.body)
+  const {
+    title,
+    pieceUrl,
+    tipe,
+    priceInCents,
+    quantityI,
+    quantityII,
+    quantityIII,
+    quantityIIII,
+    quantityV,
+    quantityIV,
+    quantityIIV,
+    quantityIIIV,
+    quantityIIIIV
+   } = createpants.parse(request.body)
 
   await prisma.pants.create({
     data: {
+      code: 'FIGP',
       title,
       pieceUrl,
       tipe,
       priceInCents,
-      quantity
+      quantityI,
+      quantityII,
+      quantityIII,
+      quantityIIII,
+      quantityV,
+      quantityIV,
+      quantityIIV,
+      quantityIIIV,
+      quantityIIIIV
+
     }
+
   })
+
+  return reply.status(201).send({ code })
 
  })
 
@@ -65,10 +106,24 @@ async function bootstrap() {
     pieceUrl: z.string(),
     tipe: z.string(),
     priceInCents: z.number(),
-    quantity: z.number()
+    quantityPP: z.number(),
+    quantityP: z.number(),
+    quantityM: z.number(),
+    quantityG: z.number(),
+    quantityGG: z.number(),
   })
 
-  const { title, pieceUrl, tipe, priceInCents, quantity } = createTshirts.parse(request.body)
+  const {
+    title,
+    pieceUrl,
+    tipe,
+    priceInCents,
+    quantityPP,
+    quantityP,
+    quantityM,
+    quantityG,
+    quantityGG,
+  } = createTshirts.parse(request.body)
 
   await prisma.tshirts.create({
     data: {
@@ -76,7 +131,11 @@ async function bootstrap() {
       pieceUrl,
       tipe,
       priceInCents,
-      quantity
+      quantityPP,
+      quantityP,
+      quantityM,
+      quantityG,
+      quantityGG,
     }
   })
 
@@ -99,10 +158,24 @@ async function bootstrap() {
       pieceUrl: z.string(),
       tipe: z.string(),
       priceInCents: z.number(),
-      quantity: z.number()
+      quantityPP: z.number(),
+      quantityP: z.number(),
+      quantityM: z.number(),
+      quantityG: z.number(),
+      quantityGG: z.number(),
     })
   
-    const { title, pieceUrl, tipe, priceInCents, quantity } = createBlouses.parse(request.body)
+    const {
+      title,
+      pieceUrl,
+      tipe,
+      priceInCents,
+      quantityPP,
+      quantityP,
+      quantityM,
+      quantityG,
+      quantityGG,
+    } = createBlouses.parse(request.body)
   
     await prisma.blouses.create({
       data: {
@@ -110,7 +183,11 @@ async function bootstrap() {
         pieceUrl,
         tipe,
         priceInCents,
-        quantity
+        quantityPP,
+        quantityP,
+        quantityM,
+        quantityG,
+        quantityGG,
       }
     })
   
@@ -133,10 +210,24 @@ async function bootstrap() {
       pieceUrl: z.string(),
       tipe: z.string(),
       priceInCents: z.number(),
-      quantity: z.number()
+      quantityPP: z.number(),
+      quantityP: z.number(),
+      quantityM: z.number(),
+      quantityG: z.number(),
+      quantityGG: z.number(),
     })
   
-    const { title, pieceUrl, tipe, priceInCents, quantity } = createShirt.parse(request.body)
+    const {
+      title,
+      pieceUrl,
+      tipe,
+      priceInCents,
+      quantityPP,
+      quantityP,
+      quantityM,
+      quantityG,
+      quantityGG,
+    } = createShirt.parse(request.body)
   
     await prisma.shirt.create({
       data: {
@@ -144,7 +235,11 @@ async function bootstrap() {
         pieceUrl,
         tipe,
         priceInCents,
-        quantity
+        quantityPP,
+        quantityP,
+        quantityM,
+        quantityG,
+        quantityGG,
       }
     })
   
