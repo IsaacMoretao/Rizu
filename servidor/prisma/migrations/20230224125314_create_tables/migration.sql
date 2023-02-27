@@ -1,4 +1,11 @@
 -- CreateTable
+CREATE TABLE "admins" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "password" TEXT NOT NULL
+);
+
+-- CreateTable
 CREATE TABLE "pants" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "code" TEXT NOT NULL,

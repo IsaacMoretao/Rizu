@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model admins {
+  id       String @id @default(cuid())
+  username String @unique
+  password String
+}
+
+model pants {
+  id           String  @id @default(cuid())
+  code         String  @unique
+  title        String
+  pieceUrl     String?
+  tipe         String
+  priceInCents Int
+
+  quantityI    Int?
+  quantityII   Int?
+  quantityIII  Int?
+  quantityIIII Int?
+
+  quantityV     Int?
+  quantityIV    Int?
+  quantityIIV   Int?
+  quantityIIIV  Int?
+  quantityIIIIV Int?
+}
+
+model shirt {
+  id       String  @id @default(cuid())
+  code     String? @unique
+  title    String
+  pieceUrl String?
+  tipe     String
+
+  priceInCents Int
+  quantityPP   Int?
+  quantityP    Int?
+  quantityM    Int?
+  quantityG    Int?
+  quantityGG   Int?
+}
+
+model tshirts {
+  id           String @id @default(cuid())
+  code         String @unique
+  title        String
+  pieceUrl     String?
+  tipe         String
+  priceInCents Int
+
+  quantityPP Int?
+  quantityP  Int?
+  quantityM  Int?
+  quantityG  Int?
+  quantityGG Int?
+}
+
+model blouses {
+  id           String @id @default(cuid())
+  code         String @unique
+  title        String
+  pieceUrl     String?
+  tipe         String
+  priceInCents Int
+
+  quantityPP Int?
+  quantityP  Int?
+  quantityM  Int?
+  quantityG  Int?
+  quantityGG Int?
+}

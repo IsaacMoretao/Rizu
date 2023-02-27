@@ -20,16 +20,11 @@ async function bootstrap() {
 
   const pants = await prisma.pants.findMany()
 
-
   return { pants }
 
  })
 
- fastify.post('/pants', async(request, reply) => {
-
-  const generate = new ShortUniqueId({ length: 6 })
-  const code = String(generate().toUpperCase());
-
+ fastify.post('/pants/post', async(request, reply) => {
 
   const createpants = z.object({
     title: z.string(),
@@ -65,7 +60,6 @@ async function bootstrap() {
 
   await prisma.pants.create({
     data: {
-      code: 'FIGP',
       title,
       pieceUrl,
       tipe,
@@ -84,7 +78,6 @@ async function bootstrap() {
 
   })
 
-  return reply.status(201).send({ code })
 
  })
 
@@ -99,7 +92,10 @@ async function bootstrap() {
 
  })
 
- fastify.post('/Tshirts', async(request, reply) => {
+ fastify.post('/Tshirts/post', async(request, reply) => {
+
+  const generate = new ShortUniqueId({ length: 6 })
+  const code = String(generate().toUpperCase());
 
   const createTshirts = z.object({
     title: z.string(),
@@ -128,6 +124,7 @@ async function bootstrap() {
   await prisma.tshirts.create({
     data: {
       title,
+      code,
       pieceUrl,
       tipe,
       priceInCents,
@@ -151,7 +148,7 @@ async function bootstrap() {
   
    })
   
-   fastify.post('/Blouses', async(request, reply) => {
+   fastify.post('/Blouses/post', async(request, reply) => {
   
     const createBlouses = z.object({
       title: z.string(),
@@ -203,7 +200,7 @@ async function bootstrap() {
   
    })
   
-   fastify.post('/Shirt', async(request, reply) => {
+   fastify.post('/Shirt/post', async(request, reply) => {
   
     const createShirt = z.object({
       title: z.string(),

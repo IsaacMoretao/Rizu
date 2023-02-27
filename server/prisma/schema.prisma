@@ -16,7 +16,6 @@ datasource db {
 
 model pants {
   id       String  @id @default(cuid())
-  code     String  @unique
   title    String
   pieceUrl String?
   tipe     String
@@ -35,7 +34,6 @@ model pants {
 
 model shirt {
   id       String  @id @default(cuid())
-  code     String  @unique
   title    String
   pieceUrl String?
   tipe     String
@@ -50,7 +48,6 @@ model shirt {
 
 model Tshirts {
   id       String @id @default(cuid())
-  code     String @unique
   title    String
   pieceUrl String
   tipe     String
@@ -65,7 +62,6 @@ model Tshirts {
 
 model blouses {
   id       String @id @default(cuid())
-  code     String @unique
   title    String
   pieceUrl String
   tipe     String
