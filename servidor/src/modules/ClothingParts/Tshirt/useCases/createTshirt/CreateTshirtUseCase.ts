@@ -1,4 +1,4 @@
-import { prisma } from '../../../../database/prismaClient';
+import { prisma } from '../../../../../database/prismaClient';
 import ShortUniqueId from "short-unique-id"
 
 interface IClothingTshirt {
@@ -33,7 +33,7 @@ export class CreateTshirtUseCase {
     const generate = new ShortUniqueId({ length: 5 })
     const Code = String(generate()).toUpperCase()
 
-    const sirt = await prisma.tshirts.create({
+    const tshirt = await prisma.tshirts.create({
       data: {
         priceInCents,
         title,
@@ -48,6 +48,6 @@ export class CreateTshirtUseCase {
       },
     });
 
-    return sirt;
+    return tshirt;
   }
 }
