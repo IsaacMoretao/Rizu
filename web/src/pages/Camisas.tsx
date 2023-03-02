@@ -1,10 +1,16 @@
-import Image from 'next/image';
-import React from 'react';
+import { Produto } from './../components/Produto';
 
-export default function Camisas(){
+export function Camisas(){
   return(
-    <div>
-
-    </div>
+    <main>
+      <Produto/>
+      <Produto/>
+      <Produto/>
+      <Produto/>
+      <Produto/>
+      <Produto/>
+      <Produto/>
+      <Produto/>
+    </main>
   )
 }

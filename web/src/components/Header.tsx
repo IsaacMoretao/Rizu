@@ -1,38 +1,53 @@
-import Camisa from '../assets/Camisa.png';
-import Calça from '../assets/Calça.png';
+import Camiseta from '../assets/Camisa.png';
+import Camisa from '../assets/camisa-social.png';
 import Blusa from '../assets/Blusa.png';
 import Acessórios from '../assets/Acessórios.png';
-import Image from 'next/image';
+import Calça from '../assets/Calça.png';
+import Vestido from '../assets/vestir.png';
+import Logo from '../assets/sacolas-de-compras.png';
 
 export function Header(){
   return(
-    <div className="flex justify-around items-center bg-violet-500 h-[60px]">
-      
-      <img src='' alt="Image" />
-      <nav className="flex gap-5 text-violet-50">
-        <a className="flex gap-2 cursor-pointer hover:font-bold duration-150">
-          <Image src={Calça} alt="" width={25} height={25} />
-          CALÇAS
-        </a>
-        <a className="flex gap-2 cursor-pointer hover:font-bold duration-150">
-          <Image src={Camisa} alt="" width={25} height={25} />
-          CAMISETAS
-        </a>
-        <a className="flex gap-2 cursor-pointer hover:font-bold duration-150">
-          <Image src={Blusa} alt="" width={25} height={25} />
-          BLUSAS
-        </a>
-        <a className="flex gap-2 cursor-pointer hover:font-bold duration-150">
-          <Image src={Acessórios} alt="" width={25} height={25} />
-          ACESÓRIOS
-        </a>
-      </nav>
-      <figure className="flex flex-col justify-around rounded-full h-[40px] w-[40px]">
-        <div className="w-full h-[3px] bg-violet-50"/>
-        <div className="w-full h-[3px] bg-violet-50"/>
-        <div className="w-full h-[3px] bg-violet-50"/>
+
+    <header className="flex px-10 w-full bg-violet-600 h-12 justify-between items-center">
+      <figure className='flex gap-2'>
+        <img src={Logo} alt="" className='h-7' />
+        <h1 className='font-bold text-white'>Rizu</h1>
       </figure>
 
-    </div>
+      <nav className='flex items-center gap-5 text-white'>
+        <a href="" className='flex items-center gap-2 hover:font-bold'>
+          <img src={Camiseta} alt="" className="h-5"/>
+          Camisetas
+        </a>
+
+
+        <a href="" className='flex items-center gap-2 hover:font-bold'>
+          <img src={Camisa} alt="" className="h-5"/>
+          camisas
+        </a>
+
+        <a href="" className='flex items-center gap-2 hover:font-bold'>
+          <img src={Calça} alt="" className="h-5"/>
+          calças
+        </a>
+
+        <a href="" className='flex items-center gap-2 hover:font-bold'>
+          <img src={Blusa} alt="" className="h-5"/>
+          blusas
+        </a>
+
+        <a href="" className='flex items-center gap-2 hover:font-bold'>
+          <img src={Vestido} alt="" className="h-5"/>
+          vestidos
+        </a>
+
+        <a href="" className='flex items-center gap-2 hover:font-bold'>
+          <img src={Acessórios} alt="" className="h-5"/>
+          acessórios
+        </a>
+
+      </nav>
+    </header>
   )
 }

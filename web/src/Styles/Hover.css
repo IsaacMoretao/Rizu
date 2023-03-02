@@ -1,0 +1,4 @@
+#CompOne:hover ~ #CompTwo{
+  opacity: 0;
+}
+

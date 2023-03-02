@@ -1,9 +1,7 @@
-import Image from 'next/image';
-
-export default function Calças(){
+export function Calças(){
   return(
     <div>
-
+      Calças
     </div>
   )
 }
