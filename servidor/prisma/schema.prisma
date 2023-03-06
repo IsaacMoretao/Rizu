@@ -17,6 +17,7 @@ model pants {
   id           String  @id @default(cuid())
   code         String  @unique
   title        String
+  description  String
   pieceUrl     String?
   tipe         String
   priceInCents Int
@@ -34,11 +35,12 @@ model pants {
 }
 
 model shirt {
-  id       String  @id @default(cuid())
-  code     String? @unique
-  title    String
-  pieceUrl String?
-  tipe     String
+  id          String  @id @default(cuid())
+  code        String? @unique
+  title       String
+  description String
+  pieceUrl    String?
+  tipe        String
 
   priceInCents Int
   quantityPP   Int?
@@ -49,9 +51,10 @@ model shirt {
 }
 
 model tshirts {
-  id           String @id @default(cuid())
-  code         String @unique
+  id           String  @id @default(cuid())
+  code         String  @unique
   title        String
+  description  String
   pieceUrl     String?
   tipe         String
   priceInCents Int
@@ -64,9 +67,10 @@ model tshirts {
 }
 
 model blouses {
-  id           String @id @default(cuid())
-  code         String @unique
+  id           String  @id @default(cuid())
+  code         String  @unique
   title        String
+  description  String
   pieceUrl     String?
   tipe         String
   priceInCents Int
@@ -76,4 +80,30 @@ model blouses {
   quantityM  Int?
   quantityG  Int?
   quantityGG Int?
+}
+
+model dresses {
+  id           String  @id @default(cuid())
+  code         String  @unique
+  title        String
+  description  String
+  pieceUrl     String?
+  tipe         String
+  priceInCents Int
+
+  quantityPP Int?
+  quantityP  Int?
+  quantityM  Int?
+  quantityG  Int?
+  quantityGG Int?
+}
+
+model accessories {
+  id           String  @id @default(cuid())
+  code         String  @unique
+  title        String
+  description  String
+  pieceUrl     String?
+  tipe         String
+  priceInCents Int
 }

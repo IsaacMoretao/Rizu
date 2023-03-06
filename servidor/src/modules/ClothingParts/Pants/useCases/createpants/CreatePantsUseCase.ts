@@ -15,6 +15,7 @@ interface IClothingPants {
 
   priceInCents: number,
   title: string,
+  description: string,
   pieceUrl?: string,
   tipe: string,
 
@@ -24,6 +25,7 @@ export class CreatePantsUseCase {
   async execute({
     priceInCents,
     title,
+    description,
     pieceUrl,
     tipe,
 
@@ -47,6 +49,7 @@ export class CreatePantsUseCase {
       data: {
         priceInCents,
         title,
+        description,
         code: Code,
         pieceUrl,
         tipe,

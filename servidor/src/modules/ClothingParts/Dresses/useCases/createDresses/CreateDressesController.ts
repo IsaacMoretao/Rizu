@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { CreateTshirtUseCase } from './CreateTshirtUseCase';
+import { CreateDressesUseCase } from './CreateDressesUseCase';
 
-export class CreateTshirtController {
+export class CreateDressesController {
 
   async handle(request: Request, response: Response) {
     const {
@@ -10,6 +10,7 @@ export class CreateTshirtController {
       description,
       pieceUrl,
       tipe,
+      
       quantityPP,
       quantityP,
       quantityM,
@@ -17,14 +18,15 @@ export class CreateTshirtController {
       quantityGG
     } = request.body;
 
-  const createTshirtUseCase = new CreateTshirtUseCase();
+  const createDressesUseCase = new CreateDressesUseCase();
 
-  const resultado = await createTshirtUseCase.execute({
+  const resultado = await createDressesUseCase.execute({
     priceInCents,
     title,
     description,
     pieceUrl,
     tipe,
+
     quantityPP,
     quantityP,
     quantityM,

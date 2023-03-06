@@ -7,8 +7,10 @@ export class CreateShirtController {
     const {
       priceInCents,
       title,
+      description,
       pieceUrl,
       tipe,
+      
       quantityPP,
       quantityP,
       quantityM,
@@ -21,8 +23,10 @@ export class CreateShirtController {
   const resultado = await createPartsUseCase.execute({
     priceInCents,
     title,
+    description,
     pieceUrl,
     tipe,
+
     quantityPP,
     quantityP,
     quantityM,

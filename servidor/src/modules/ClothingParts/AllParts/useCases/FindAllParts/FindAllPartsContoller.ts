@@ -7,6 +7,6 @@ export class FindAllPartsContoller {
 
     const FindAll = await findAllWithoutEndDateUseCase.execute();
 
-    return response.json( FindAll );
+    return response.json({ FindAll });
   }
 }

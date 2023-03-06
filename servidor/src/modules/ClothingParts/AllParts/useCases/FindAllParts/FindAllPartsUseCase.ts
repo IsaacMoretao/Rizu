@@ -11,6 +11,6 @@ export class FindAllPartsUseCase {
 
     const Pants = await prisma.pants.findMany();
 
-    return  { Shirt, Tshirt, Blouses, Pants };
+    return {Shirt, Tshirt, Blouses, Pants} ;
   }
 }

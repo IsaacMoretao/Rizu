@@ -1,19 +1,28 @@
 import Camiseta from '../assets/Camisa.png';
-export function Produto() {
+
+interface IProduto {
+  Title: string,
+  ProductUrl: string,
+  Description: string,
+  Code: string
+}
+
+export function Produto(props: IProduto) {
   return(
     <a href="#" className='flex mr-auto mt-11 w-[60%] mb-11 ml-auto'>
       <section className='border border-black rounded-md p-5'>
         <header className='p-3 flex items-center justify-center'>
-          <strong>Camiseta</strong>
+          <strong>{props.Title}</strong>
         </header>
         <main className="flex gap-5">
-          <img src={Camiseta} alt="" className='h-[150px] w-[150px] mr-[30px]' />
+          <img src={props.ProductUrl} alt="" className='h-[150px] w-[150px] mr-[30px]' />
           <p className='mr-[30px] flex items-center'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quaerat
-            fugiat beatae architecto, vero ut eligendi illo, nulla ex repellendus
-            corrupti autem id, ratione eius maxime atque possimus rem nobis?
+            {props.Description}
           </p>
         </main>
+        <footer>
+          {props.Code}
+        </footer>
       </section>
     </a>
   )

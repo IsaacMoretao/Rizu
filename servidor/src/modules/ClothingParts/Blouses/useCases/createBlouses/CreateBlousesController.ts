@@ -7,6 +7,7 @@ export class CreateBlousesController {
     const {
       priceInCents,
       title,
+      description,
       pieceUrl,
       tipe,
       quantityPP,
@@ -21,6 +22,7 @@ export class CreateBlousesController {
   const resultado = await createBlousesUseCase.execute({
     priceInCents,
     title,
+    description,
     pieceUrl,
     tipe,
     quantityPP,

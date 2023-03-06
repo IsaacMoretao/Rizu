@@ -1,7 +1,7 @@
 import { prisma } from '../../../../../database/prismaClient';
 import ShortUniqueId from "short-unique-id"
 
-interface IClothingParts {
+interface IClothingDresses {
   quantityPP: number,
   quantityP: number,
   quantityM: number,
@@ -16,7 +16,7 @@ interface IClothingParts {
 
 }
 
-export class CreatePartsUseCase {
+export class CreateDressesUseCase {
   async execute({
     priceInCents,
     title,
@@ -30,12 +30,12 @@ export class CreatePartsUseCase {
     quantityG,
     quantityGG
 
-  }: IClothingParts) {
+  }: IClothingDresses) {
 
     const generate = new ShortUniqueId({ length: 5 })
     const Code = String(generate()).toUpperCase()
 
-    const sirt = await prisma.shirt.create({
+    const sirt = await prisma.dresses.create({
       data: {
         priceInCents,
         title,

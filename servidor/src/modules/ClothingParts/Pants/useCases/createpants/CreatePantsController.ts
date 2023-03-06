@@ -7,6 +7,7 @@ export class CreatePantsController {
     const {
       priceInCents,
       title,
+      description,
       pieceUrl,
       tipe,
 
@@ -27,6 +28,7 @@ export class CreatePantsController {
   const resultado = await createPantsUseCase.execute({
     priceInCents,
     title,
+    description,
     pieceUrl,
     tipe,
     quantityI,
