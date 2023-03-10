@@ -24,35 +24,29 @@ export function Camisas(){
 
   const [ items, setItems ] = useState<Shirt[]>([]);
 
+
   useEffect(() => {
-    api
-      .get("/shirt/find")
-      .then((response) => setItems(response.data))
-      .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
-  }, []);
+    fetch('http://localhost:3333/Acessories/find')
+    .then(response => response.json())
+    .then(response => {
+      setItems(response)
+    })
+  }, []) 
 
-/*  useEffect(() => {
-    async function fetchData() {
-      const result = await getShirts();
-      setShirts(result);
-    }
 
-    fetchData();
-  }, []);
-
-  async function getShirts(): Promise<Shirt[]> {
-    const response = await axios.get('http://localhost:3333/shirt/find');
-    return response.data as Shirt[];
-  }*/
   console.log(items)
 
   return(
     <main>
-    
-      
-      
+      {items.map (item => {
+        return (
+
+          <div key={item.id}>
+            <Produto Title={item.title} ProductUrl={item.pieceUrl} Description={item.description} Code={item.code}/>
+          </div>
+
+        )
+      })}
 
     </main>
   )
