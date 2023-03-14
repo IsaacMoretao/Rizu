@@ -52,14 +52,13 @@ routes.post('/Acessories/', createAccessoriesController.handle);
 
 // <!-- <GET /> -->
 
-routes.get('/Acessories/find/', findAccessoriesController.handle);
+routes.get('/acessories/find/', findAccessoriesController.handle);
 routes.get('/allParts/', findAllPartsContoller.handle);
 routes.get('/bloses/find/', findAllAvailableController.handle);
 routes.get('/pants/find/', findAllPantsController.handle);
 
-routes.get('/Dresses/find', findAllDressesController.handle)
+routes.get('/dresses/find', findAllDressesController.handle)
 routes.get('/shirt/find/', findAllShirtsController.handle);
 routes.get('/tshirt/find/', findAllTshirtsController.handle);
-
 
 export { routes }

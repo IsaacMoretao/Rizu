@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { api } from '../lib/axios';
 import { Produto } from './../components/Produto';
+import Sorriso from '../assets/icon-sorriso.png'
 
 interface Shirt {
   id: string,
@@ -23,28 +24,39 @@ interface Shirt {
 export function Camisas(){
 
   const [ items, setItems ] = useState<Shirt[]>([]);
+  const [ notItem, setNotItem] = useState('');
+
 
 
   useEffect(() => {
-    fetch('http://localhost:3333/Acessories/find')
+    fetch('http://localhost:3333/shirt/find/')
     .then(response => response.json())
     .then(response => {
       setItems(response)
     })
+    if(!items){
+      setNotItem('flex');
+    } else {
+      setNotItem('none');
+    }
   }, []) 
 
-
-  console.log(items)
-
   return(
-    <main>
+    <main className='flex flex-col justify-center items-center main'>
+      <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
+        <img src={Sorriso} alt="" />
+        Não há nenhum item em estoque.
+      </span>
       {items.map (item => {
         return (
-
           <div key={item.id}>
-            <Produto Title={item.title} ProductUrl={item.pieceUrl} Description={item.description} Code={item.code}/>
+            <div className='w-full'>
+              <Produto Title={item.title} ProductUrl={item.pieceUrl} Description={item.description} Code={item.code}/>
+            </div>
+            <span className='flex fixed w-full h-[100vh] bg-black  mt-[-130px]'>
+              <h1>Hello Word</h1>
+            </span>
           </div>
-
         )
       })}
 
