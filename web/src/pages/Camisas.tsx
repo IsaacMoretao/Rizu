@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { api } from '../lib/axios';
 import { Produto } from './../components/Produto';
 import Sorriso from '../assets/icon-sorriso.png'
 
@@ -49,13 +48,10 @@ export function Camisas(){
       </span>
       {items.map (item => {
         return (
-          <div key={item.id}>
-            <div className='w-full'>
+          <div key={item.id} className='w-full'>
+            <div>
               <Produto Title={item.title} ProductUrl={item.pieceUrl} Description={item.description} Code={item.code}/>
             </div>
-            <span className='flex fixed w-full h-[100vh] bg-black  mt-[-130px]'>
-              <h1>Hello Word</h1>
-            </span>
           </div>
         )
       })}

@@ -5,7 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      colors: {
+        'transparentBlack': '#0000008c',
+      },
     },
   },
   plugins: [],
