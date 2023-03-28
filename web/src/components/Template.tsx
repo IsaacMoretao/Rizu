@@ -25,7 +25,7 @@ export function Template(props: ITemplate){
   return(
 
     <div
-      className="flex justify-center items-center fixed h-[100vh] w-[100%] bg-transparentBlack"
+      className="flex justify-center items-center  fixed h-[100vh] w-[100%] bg-transparentBlack"
       style={{left: "0", top: '0', display: props.display}}>
 
       <figure
@@ -34,11 +34,11 @@ export function Template(props: ITemplate){
         onClick={close}>
         <img src={X} alt="" />
       </figure>
-        {props.image}
-      <main className="w-[70%] flex fixed items-center p-10 flex-col rounded-xl h-[70vh] bg-white">
-        <img src="https://github.com/IsaacMoretao.png" className="h-[200px] rounded-xl w-[200px]"/>
-        <span className="text-3xl">{props.name}</span>
-        <p className="h-full">{props.description}</p>
+        
+      <main className="w-[70%] flex fixed items-center p-10 flex-col rounded-xl h-[80vh] bg-white">
+        <img src={props.image} className="h-auto rounded-xl w-[200px]"/>
+        <span className="text-3xl p-3">{props.name}</span>
+        <p className="h-full text-center">{props.description}</p>
         <button
           className="
           border-violet-600 border-2 bg-clip-text text-lg font-bold text-transparent

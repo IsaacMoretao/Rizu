@@ -57,7 +57,7 @@ routes.get('/allParts/', findAllPartsContoller.handle);
 routes.get('/bloses/find/', findAllAvailableController.handle);
 routes.get('/pants/find/', findAllPantsController.handle);
 
-routes.get('/dresses/find', findAllDressesController.handle)
+routes.get('/dresses/find', findAllDressesController.handle);
 routes.get('/shirt/find/', findAllShirtsController.handle);
 routes.get('/tshirt/find/', findAllTshirtsController.handle);
 

@@ -50,7 +50,12 @@ export function Camisas(){
         return (
           <div key={item.id} className='w-full'>
             <div>
-              <Produto Title={item.title} ProductUrl={item.pieceUrl} Description={item.description} Code={item.code}/>
+              <Produto
+                Title={item.title}
+                ProductUrl={item.pieceUrl}
+                Description={item.description}
+                Code={item.code}
+                price={item.priceInCents}/>
             </div>
           </div>
         )

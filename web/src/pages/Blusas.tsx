@@ -36,7 +36,13 @@ export function Blusas(){
         return (
 
           <div key={item.id}>
-            <Produto Title={item.title} ProductUrl={item.pieceUrl} Description={item.description} Code={item.code}/>
+            <Produto
+              Title={item.title}
+              ProductUrl={item.pieceUrl}
+              Description={item.description}
+              Code={item.code}
+              price={item.priceInCents}
+            />
           </div>
 
         )

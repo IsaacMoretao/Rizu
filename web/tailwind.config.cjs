@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'transparentBlack': '#0000008c',
       },
+      
     },
   },
   plugins: [],

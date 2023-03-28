@@ -48,9 +48,15 @@ export function Camisetas(){
       {items.map (item => {
         return (
 
-          <Link to={`/item ${item.id}`} key={item.id}>
-            <Produto Title={item.title} ProductUrl={item.pieceUrl} Description={item.description} Code={item.code}/>
-          </Link>
+          <div key={item.id}>
+            <Produto
+              Title={item.title}
+              ProductUrl={item.pieceUrl}
+              Description={item.description}
+              Code={item.code}
+              price={item.priceInCents}
+            />
+          </div>
 
         )
       })}

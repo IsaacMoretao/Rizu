@@ -1,4 +1,16 @@
 #CompOne:hover ~ #CompTwo{
   opacity: 0;
 }
+#Produto{
+  transition: 0.5s;
+  transition: 1s background-image;
+  -webkit-transition: background-image 0.2s ease-in-out;
+transition: background-image 0.2s ease-in-out;
+}
+#Produto:hover{
+  background-image:
+  url("../assets/background.jpg");
 
+  background-size: cover;
+  color: white;
+}
