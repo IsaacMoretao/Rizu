@@ -31,7 +31,7 @@
 <h1 align="center">
   🖋️ Project
 </h1>
-<p align="center">
+
   <img
     src="./web/src/assets/Images-web/web-products.png"
     alt="Wallpaper-do-projeto"
@@ -41,16 +41,22 @@
     src="./web/src/assets/Images-web/mobile-web.png"
     alt="Wallpaper-do-projeto"
     align="left"
+    width="48%"
   />
   <img
     src="./web/src/assets/Images-web/mobile-web(2).png"
     alt="Wallpaper-do-projeto"
-    align="left"
+    align="right"
+    width="48%"
   />
-
-  this is a FullStack project that aims to make a shopping website,
-  as a demonstration of my own skills and expertise.
-</p>
+  
+  <p align="center">
+    ---
+  </p>
+  
+  <p align="center">
+    this is a FullStack project that aims to make a shopping website, as a demonstration of my own skills and expertise.
+  </p>
 
 <br/><br/>
 
