@@ -1,5 +1,6 @@
 import { useAuth } from "../hooks/useGlobals";
 import X from "../assets/letra-x.png"
+import { Link } from 'react-router-dom';
 
 interface ITemplate {
   display: string,
@@ -35,16 +36,17 @@ export function Template(props: ITemplate){
         <img src={X} alt="" />
       </figure>
         
-      <main className="w-[70%] flex fixed items-center p-10 flex-col rounded-xl h-[80vh] bg-white">
+      <main className="w-[80%] flex fixed items-center p-10 flex-col rounded-xl h-[90vh] bg-white">
         <img src={props.image} className="h-auto rounded-xl w-[200px]"/>
         <span className="text-3xl p-3">{props.name}</span>
         <p className="h-full text-center">{props.description}</p>
-        <button
+        <Link
+          to={"/Compra"}
           className="
           border-violet-600 border-2 bg-clip-text text-lg font-bold text-transparent
           bg-gradient-to-r from-violet-600 to-pink-500 px-10 py-2 rounded-full">
           COMPRAR
-        </button>
+        </Link>
 
         <footer
           className="flex gap-5">

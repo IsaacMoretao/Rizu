@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Produto } from "../components/Produto";
 import Sorriso from '../assets/icon-sorriso.png'
-import { Link } from "react-router-dom";
 
 interface Tshirt {
   id: string,

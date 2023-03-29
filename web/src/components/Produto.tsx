@@ -28,7 +28,7 @@ export function Produto(props: IProduto) {
 
       <article
         onClick={DisplayofTemplate}
-        className='flex z-20 mr-auto cursor-pointer mt-11 w-[60%] mb-11 ml-auto'>
+        className='flex z-20 mr-auto bg-white cursor-pointer mt-11 w-[60%] mb-11 ml-auto'>
 
         <section className='border w-[100%] border-black rounded-md p-5'>
           <header className='p-3 flex items-center justify-center'>
