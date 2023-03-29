@@ -33,20 +33,23 @@
 </h1>
 <p align="center">
   <img
+    src="./web/src/assets/Images-web/web-products.png"
+    alt="Wallpaper-do-projeto"
+    align="center"
+  />
+  <img
     src="./web/src/assets/Images-web/mobile-web.png"
     alt="Wallpaper-do-projeto"
     align="left"
-    max-width="30%"
   />
   <img
-    src="./web/src/assets/Images-web/web-products.png"
+    src="./web/src/assets/Images-web/mobile-web(2).png"
     alt="Wallpaper-do-projeto"
-    align="right"
-    max-width="60%"
+    align="left"
   />
 
-  This was a frontEnd and backEnd project, whose objective is to make a list
-  of daily habits and customs, great for making daily goals and objectives.
+  this is a FullStack project that aims to make a shopping website,
+  as a demonstration of my own skills and expertise.
 </p>
 
 <br/><br/>
