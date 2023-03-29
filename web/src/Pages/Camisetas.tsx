@@ -22,7 +22,7 @@ interface Tshirt {
 export function Camisetas(){
 
   const [ items, setItems ] = useState<Tshirt[]>([]);
-  const [ notItem, setNotItem] = useState('');
+  const [ notItem, setNotItem] = useState("");
   
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export function Camisetas(){
     .then(response => {
       setItems(response)
     })
-    if(!items) {
+    if(!items ) {
       setNotItem('flex');
     } else {
       setNotItem('none');

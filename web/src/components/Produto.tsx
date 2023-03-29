@@ -1,5 +1,6 @@
 import { Template } from "./Template"
-import { useAuth } from "../hooks/useGlobals";
+import { useState } from "react";
+import "../Styles/Buttom-Hamburguer-Header.css"
 
 interface IProduto {
   Title: string,
@@ -11,7 +12,7 @@ interface IProduto {
 
 export function Produto(props: IProduto) {
 
-  const { visible, setVisible } = useAuth();
+  const [visible, setVisible] = useState("none");
 
   function DisplayofTemplate() {
     if(visible === "none"){
@@ -28,7 +29,8 @@ export function Produto(props: IProduto) {
 
       <article
         onClick={DisplayofTemplate}
-        className='flex z-20 mr-auto bg-white cursor-pointer mt-11 w-[60%] mb-11 ml-auto'>
+        className='flex h-auto z-20 mr-auto bg-white
+        cursor-pointer mt-11 w-[60%] mb-11 ml-auto Produto'>
 
         <section className='border w-[100%] border-black rounded-md p-5'>
           <header className='p-3 flex items-center justify-center'>
@@ -37,17 +39,17 @@ export function Produto(props: IProduto) {
 
           <main className="flex gap-5">
             <figure className="flex items-center flex-col mr-[30px]">
-              <img src={props.ProductUrl} alt="" className='h-auto w-[150px] rounded-lg ' />
+              <img src={props.ProductUrl} alt="" className='h-auto w-[200px] rounded-lg ' />
               {props.Code}
             </figure>
             
-            <p className='mr-[30px] w-full h-[150px] flex items-center'>
+            <p className='mr-[30px] w-full h-[150px] flex items-center p'>
               {props.Description}
             </p>
           </main>
 
           <footer className="flex text-center">
-            <p className="flex ml-auto font-bold text-lg mr-auto ">{props.price/100} R$</p>
+            <p className="flex ml-auto p-5 font-bold text-lg mr-auto ">{props.price/100} R$</p>
           </footer>
         </section>
 
@@ -56,7 +58,9 @@ export function Produto(props: IProduto) {
         display={visible}
         name={props.Title}
         image={props.ProductUrl}
-        description={props.Description} />
+        description={props.Description}
+        setVisible={setVisible}
+      />
     </>
   )
 }

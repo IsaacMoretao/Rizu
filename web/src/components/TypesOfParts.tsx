@@ -1,10 +1,10 @@
 import Camiseta from '../assets/Camisa.png';
 import Camisa from '../assets/camisa-social.png';
 import Blusa from '../assets/Blusa.png';
+
 import Acessórios from '../assets/Acessórios.png';
 import Calça from '../assets/Calça.png';
 import Vestido from '../assets/vestir.png'
-import '../Styles/Hover.css';
 import { Link } from 'react-router-dom';
 
 export function TypesOfParts() {
@@ -15,9 +15,8 @@ export function TypesOfParts() {
 
         <Link to={'/Blusas'} >
           <section  className="w-[200px] border-2 rounded-md p-3 border-black flex-col flex justify-center items-center">
-              <img src={Blusa} alt="" className='h-[150px]' />
-              Blusas
-            
+            <img src={Blusa} alt="" className='h-[150px]' />
+            Blusas
           </section>
         </Link>
 
@@ -31,8 +30,7 @@ export function TypesOfParts() {
         <Link to={'/Camisas'}>
          <section className="w-[200px] border-2 rounded-md p-3 border-black static flex flex-col justify-center items-center">
             <img src={Camisa} alt="" className='h-[150px]' />
-
-           Camisas
+            Camisas
           </section>
         </Link>
       </div>

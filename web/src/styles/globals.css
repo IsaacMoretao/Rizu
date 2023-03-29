@@ -4,9 +4,49 @@
 
 .main {
   min-height: 100vh;
+  padding-top: 50px;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  background: #3b82f600;
+  position: absolute;
+  width: 7px;
+}
+
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #53289d;
+  border-radius: 50px;
+  
 }
 
 .background {
   background: url("../assets/bg.jpg") no-repeat center center;
   background-size: cover;
+}
+
+.p {
+  overflow-y: scroll;
+}
+
+.p::-webkit-scrollbar {
+  background: #3b82f600;
+  width: 5px;
+}
+
+.p::-webkit-scrollbar-button {
+  display: none;
+}
+
+.p::-webkit-scrollbar-thumb {
+  background-color: #53289d;
+  border-radius: 50px;
+  
 }

@@ -12,7 +12,10 @@ export function Compra(){
         <p className="text-center p-5">
           Este site foi criado para fins pessoais, não é possível fazer compras. <br />
           Agradecemos o seu interesse pelo site. Se tiver qualquer desejo de entrar em contato,
-          <a href="" className="text-green-400 hover:text-green-300 text font-bold"> Click Aqui</a>.
+          <a
+          target="_blank"
+          href="https://web.whatsapp.com/send?phone=+5511999899429"
+          className="text-green-400 hover:text-green-300 text font-bold"> Click Aqui</a>.
         </p>
         <img
           src={Famili}

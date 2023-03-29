@@ -7,17 +7,17 @@ interface ITemplate {
   name: string,
   image: string,
   description: string
+  setVisible: any;
 }
 
 export function Template(props: ITemplate){
 
-  const { visible, setVisible } = useAuth();
 
    function close() {
-    if(visible === "none"){
-      setVisible("flex")
-    } else if(visible === "flex") {
-      setVisible("none")
+    if(props.display === "none"){
+      props.setVisible("flex")
+    } else if(props.display === "flex") {
+      props.setVisible("none")
     } else {
       console.log("[[ERROR]]")
     }
@@ -26,7 +26,7 @@ export function Template(props: ITemplate){
   return(
 
     <div
-      className="flex justify-center items-center  fixed h-[100vh] w-[100%] bg-transparentBlack"
+      className="flex z-50 justify-center items-center fixed h-[100vh] w-[100%] bg-transparentBlack"
       style={{left: "0", top: '0', display: props.display}}>
 
       <figure
