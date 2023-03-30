@@ -6,7 +6,7 @@ export function Home(){
 
     <div>
 
-      <main className="flex justify-center items-center h-[100vh]">
+      <main className=" center  py-12 background main">
 
         <TypesOfParts/>
 

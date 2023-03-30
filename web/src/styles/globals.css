@@ -6,6 +6,12 @@
   min-height: 100vh;
   padding-top: 50px;
 }
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 
 body {
   overflow-y: scroll;
@@ -27,7 +33,12 @@ body::-webkit-scrollbar-thumb {
   
 }
 
-.background {
+.background{
+  background: url("../assets/parede-de-concreto.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.bricks {
   background: url("../assets/bg.jpg") no-repeat center center;
   background-size: cover;
 }

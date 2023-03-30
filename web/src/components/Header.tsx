@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../Styles/Buttom-Hamburguer-Header.css';
+import '../Styles/Responsividade.css';
 
 import Camiseta from '../assets/Camisa.png';
 import Camisa from '../assets/camisa-social.png';
@@ -9,7 +9,7 @@ import Acessórios from '../assets/Acessórios.png';
 import Calça from '../assets/Calça.png';
 import Vestido from '../assets/vestir.png';
 
-import Logo from '../assets/sacolas-de-compras.png';
+import Logo from '../assets/Logo-Oficial.png';
 import Hamburguer from '../assets/menu-hamburguer.png';
 import { useState } from 'react';
 
@@ -31,8 +31,7 @@ export function Header(){
         className="flex fixed px-10 w-full bg-violet-600 h-12 justify-between z-40 items-center Header">
         <Link to={'/'}>
           <figure className='flex gap-2'>
-            <img src={Logo} alt="Logo Rizu" className='h-7' />
-            <h1 className='font-bold text-white'>Rizu</h1>
+            <img src={Logo} alt="Logo Rizu" className='h-12' />
           </figure>
         </Link>
 

@@ -45,3 +45,21 @@
   }
 
 }
+
+@media (max-width: 700px) {
+  .Home{
+    flex-direction: column;
+
+  }
+
+  .Home a {
+    width: 90%;
+
+  }
+
+  .Home a section{
+    width: 90%;
+
+  }
+
+}

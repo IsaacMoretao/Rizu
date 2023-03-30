@@ -2,9 +2,9 @@ import Famili from "../assets/Familia.png";
 
 export function Compra(){
   return(
-    <div className="flex justify-center items-center main background">
+    <div className=" center  main bricks">
       <div
-      className="flex justify-center items-center flex-col w-[70%]
+      className=" center  flex-col w-[70%]
       bg-transparentBlack rounded-xl text-white pt-10">
         <strong className="text-2xl">
           Não foi possivel Realizar a compra!

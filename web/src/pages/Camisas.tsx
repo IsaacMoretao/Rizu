@@ -41,7 +41,7 @@ export function Camisas(){
   }, []) 
 
   return(
-    <main className='flex flex-col justify-center items-center main'>
+    <main className='flex flex-col justify-center items-center main background'>
       <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
         <img src={Sorriso} alt="" />
         Não há nenhum item em estoque.
@@ -55,7 +55,8 @@ export function Camisas(){
                 ProductUrl={item.pieceUrl}
                 Description={item.description}
                 Code={item.code}
-                price={item.priceInCents}/>
+                price={item.priceInCents}
+              />
             </div>
           </div>
         )

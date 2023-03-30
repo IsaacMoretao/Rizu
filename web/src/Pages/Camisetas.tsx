@@ -39,24 +39,24 @@ export function Camisetas(){
   }, []) 
 
   return(
-    <main className="main">
+    <main className='flex flex-col justify-center items-center main background'>
       <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
         <img src={Sorriso} alt="" />
         Não há nenhum item em estoque.
       </span>
       {items.map (item => {
         return (
-
-          <div key={item.id}>
-            <Produto
-              Title={item.title}
-              ProductUrl={item.pieceUrl}
-              Description={item.description}
-              Code={item.code}
-              price={item.priceInCents}
-            />
+          <div key={item.id} className='w-full'>
+            <div>
+              <Produto
+                Title={item.title}
+                ProductUrl={item.pieceUrl}
+                Description={item.description}
+                Code={item.code}
+                price={item.priceInCents}
+              />
+            </div>
           </div>
-
         )
       })}
 
