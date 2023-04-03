@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background {
+  background: url("../assets/Background-Login.jpg") no-repeat center center;
+  background-size: cover;
+}
+.page{
+ min-height: 100vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

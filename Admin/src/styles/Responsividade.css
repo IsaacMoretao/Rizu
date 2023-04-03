@@ -1,0 +1,65 @@
+.Header {
+  top: 0;
+
+}
+
+.Buttom-Header{
+  display: none;
+
+}
+
+.nav-Links {
+  transition: 0.5s;
+
+}
+
+@media (max-width: 850px) {
+
+  .Buttom-Header{
+    display: block;
+
+  }
+
+  .nav-Links {
+    position: absolute;
+    flex-direction: column;
+    top: 48px;
+    gap: 0;
+
+    background: rgb(124 58 237);
+    width: 300px;
+    height: 100vh;
+    border-left: 1px solid #53289d;
+
+  }
+
+  .nav-Links a{
+    padding-top: 20px;
+    width: 50%;
+    justify-content: space-between;
+
+  }
+
+  .Produto {
+    width: 95%;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .Home{
+    flex-direction: column;
+
+  }
+
+  .Home a {
+    width: 90%;
+
+  }
+
+  .Home a section{
+    width: 90%;
+
+  }
+
+}

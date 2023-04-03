@@ -31,7 +31,7 @@
 <h1 align="center">
   🖋️ Project
 </h1>
-<p align="center">
+
   <img
     src="./web/src/assets/Images-web/mobile-web.png"
     alt="Wallpaper-do-projeto"
@@ -44,7 +44,7 @@
     align="right"
     max-width="60%"
   />
-
+<p align="center">
   This was a frontEnd and backEnd project, whose objective is to make a list
   of daily habits and customs, great for making daily goals and objectives.
 </p>
