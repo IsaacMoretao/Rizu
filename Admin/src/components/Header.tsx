@@ -10,6 +10,7 @@ import Calça from '../assets/Calça.png';
 import Vestido from '../assets/vestir.png';
 
 import Hamburguer from '../assets/menu-hamburguer.png';
+import Contact from '../assets/Contact.png';
 import { useState } from 'react';
 
 export function Header(){
@@ -89,6 +90,15 @@ export function Header(){
               className="h-5"
             />
             acessórios
+          </Link>
+
+          <Link to={'/Users'} className='flex items-center gap-2 hover:font-bold'>
+            <img
+              src={Contact}
+              alt="Acessórios Ilustração"
+              className="h-5"
+            />
+            Usuários
           </Link>
 
         </nav>

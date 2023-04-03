@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { FindTshirtsUseCase } from './FindTshirtUseCase';
 
 export class FindAllTshirtsController {
