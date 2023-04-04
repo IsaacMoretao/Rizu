@@ -1,13 +1,13 @@
-import { Response, Request } from 'express';
-import { FindTshirtUseCase } from './DeleteUserUseCase';
+import { Request, Response } from 'express';
+import { DeleteUserUseCase } from './DeleteUserUseCase';
 
-export class ListUsersController {
-  async handle(request: Request, response: Response) {
-    const { id } = request.body;
-
-    const findTshirtUseCase = new FindTshirtUseCase();
-    const Users = await findTshirtUseCase.execute({ id });
-
-    return response.json(Users);
+export async function DeleteUserById(request: Request, response: Response) {
+  const { id } = request.params;
+  try {
+    const deletedUser = await DeleteUserUseCase(id);
+    response.json(deletedUser);
+  } catch (e) {
+    console.error(e);
+    response.status(500).json({ error: 'Internal server error' });
   }
 }

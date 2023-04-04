@@ -19,6 +19,10 @@ import { FindAccessoriesController } from "./modules/ClothingParts/Accessories/u
 import { FindAllDressesController } from "./modules/ClothingParts/Dresses/useCases/AllDresses/FindDressesController";
 import { ListUsersController } from "./modules/client/useCases/listClients/ListUsersController";
 
+// <!-- <DELETE /> --> //
+import { DeleteUserById } from "./modules/client/useCases/deleteClient/DeleteUserController";
+
+
 const routes = Router();
 
 // <!-- <POST /> --> //
@@ -43,6 +47,7 @@ const findAllDressesController = new FindAllDressesController();
 const findAccessoriesController = new FindAccessoriesController();
 const listUsersController = new ListUsersController();
 
+// <!-- <DELETE /> --> //
 
 // <!-- <POST /> -->
 routes.post('/client/', createClientController.handle);
@@ -65,5 +70,8 @@ routes.get('/client/find/', listUsersController.handle);
 routes.get('/dresses/find/', findAllDressesController.handle);
 routes.get('/shirt/find/', findAllShirtsController.handle);
 routes.get('/tshirt/find/', findAllTshirtsController.handle);
+
+// <!-- <DELETE /> --> //
+routes.delete('/delete/:id', DeleteUserById);
 
 export { routes }

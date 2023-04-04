@@ -40,9 +40,6 @@ export function AddParts(props: IAddParts){
           <strong>
             imagens
           </strong>
-          <input type="text" />
-          <input type="text" />
-
 
         </form>
 

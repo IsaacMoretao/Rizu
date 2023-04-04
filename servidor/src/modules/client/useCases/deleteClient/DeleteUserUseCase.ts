@@ -1,18 +1,12 @@
-import { prisma } from '../../../../database/prismaClient';
+import { PrismaClient } from '@prisma/client';
 
-interface ICreateClient {
-  id: string;
-}
+const prisma = new PrismaClient();
 
-export class FindTshirtUseCase {
-  async execute({ id }: ICreateClient) {
-
-    const client = await prisma.admins.delete({
-      data: {
-        id
-      },
-    });
-
-    return client;
-  }
+export async function DeleteUserUseCase(id: string) {
+  const deletedUser = await prisma.admins.delete({
+    where: {
+      id: id,
+    },
+  });
+  return deletedUser;
 }
