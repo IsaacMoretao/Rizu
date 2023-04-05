@@ -21,6 +21,7 @@ import { ListUsersController } from "./modules/client/useCases/listClients/ListU
 
 // <!-- <DELETE /> --> //
 import { DeleteUserById } from "./modules/client/useCases/deleteClient/DeleteUserController";
+import { LoginController } from "./modules/client/useCases/loginClient/LoginController";
 
 
 const routes = Router();
@@ -34,6 +35,7 @@ const createBlousesController = new CreateBlousesController();
 const createPantsController = new CreatePantsController();
 const createDressesController = new CreateDressesController();
 const createAccessoriesController = new CreateAccessoriesController();
+const loginController = new LoginController();
 
 
 // <!-- <GET /> --> //
@@ -58,6 +60,7 @@ routes.post('/blouses/', createBlousesController.handle);
 routes.post('/pants/', createPantsController.handle);
 routes.post('/Dresses/', createDressesController.handle);
 routes.post('/Acessories/', createAccessoriesController.handle);
+routes.post('/UserLog/', loginController.handle);
 
 
 // <!-- <GET /> -->

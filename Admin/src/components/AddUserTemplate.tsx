@@ -83,13 +83,12 @@ export function AddUserTemplate(props: ICreateUser) {
           />
           { req.length >= 6 ?
             <button
-              onSubmit={createNewUser}
+              type="submit"
               className="p-5 w-[160px] rounded-lg bg-purple-600 text-white">
               Criar Usuário
             </button>
             :
             <button
-              type="submit"
               className="p-5 w-[160px] w- rounded-lg bg-purple-600 opacity-30 text-white">
               Criar Usuário
             </button>

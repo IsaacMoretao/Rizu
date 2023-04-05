@@ -20,12 +20,12 @@ interface Shirt {
 
 }
 
-export function Camisas(){
+export function Camisetas(){
   const [ items, setItems ] = useState<Shirt[]>([]);
   const [ display, setDisplay ] = useState("none")
 
   useEffect(() => {
-    fetch('http://localhost:3333/shirt/find/')
+    fetch('http://localhost:3333/tshirt/find/')
     .then(response => response.json())
     .then(response => {
       setItems(response)
@@ -75,7 +75,7 @@ export function Camisas(){
       <AddParts
         display={display}
         setDisplay={setDisplay}
-        route={"/shirt"}
+        route={"/tshirt"}
       />
     </>
   )

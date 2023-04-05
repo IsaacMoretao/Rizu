@@ -1,6 +1,9 @@
-import { Template } from "./Template"
+import { Template } from "./Template";
 import { useState } from "react";
-import "../Styles/Responsividade.css"
+import "../Styles/Responsividade.css";
+import lixo from "../assets/lixo.png"
+import lapis from "../assets/editar.png"
+import { TemplatePieceConsentimento } from "./TemplatePieceConsentimento";
 
 interface IProduto {
   Title: string,
@@ -13,6 +16,17 @@ interface IProduto {
 export function Produto(props: IProduto) {
 
   const [visible, setVisible] = useState("none");
+  const [state, setState] = useState("none")
+
+  function State() {
+    if(state === "none"){
+      setState("flex")
+    } else if(state === "flex") {
+      setState("none")
+    } else {
+      console.log("[[ERROR]]")
+    }
+  }
 
   function DisplayofTemplate() {
     if(visible === "none"){
@@ -50,15 +64,21 @@ export function Produto(props: IProduto) {
 
           </div>  
 
-          <div className="flex flex-col">
+          <div className="flex w-full flex-col">
 
             <header className='p-3 center'>
-              <strong>{props.Title}</strong>
+              <strong>
+                {props.Title}
+              </strong>
             </header>
 
-            <p className='mr-[30px] w-full h-[150px] flex items-center p'>
+            <main className='mr-[30px] w-full h-[150px] flex justify-between items-center pr-3'>
               {props.Description}
-            </p>
+              <div className="flex h-full flex-col relative min-w-[30px] justify-around">
+                <img src={lixo} className="w-[30px] absolute z-20" style={{top: "0"}} onClick={State}/>
+                <img src={lapis} className="w-[30px] absolute" style={{bottom: "0"}} />
+              </div>
+            </main>
 
             <footer className="flex text-center">
               <p className="flex ml-auto p-5 font-bold text-lg mr-auto ">{props.price/100} R$</p>
@@ -74,6 +94,13 @@ export function Produto(props: IProduto) {
         image={props.ProductUrl}
         description={props.Description}
         setVisible={setVisible}
+      />
+
+      <TemplatePieceConsentimento
+        state={state}
+        setState={setState} 
+        Usuario={props.Title} 
+        route={""}
       />
 
     </>

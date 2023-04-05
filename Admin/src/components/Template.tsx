@@ -1,3 +1,4 @@
+import { useState } from "react";
 import X from "../assets/letra-x.png"
 import { Link } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ interface ITemplate {
 }
 
 export function Template(props: ITemplate){
+  
 
   function close() {
     if(props.display === "none"){
@@ -38,6 +40,10 @@ export function Template(props: ITemplate){
         <img src={props.image} className="h-auto rounded-xl w-[200px]"/>
         <span className="text-3xl p-3">{props.name}</span>
         <p className="h-full text-center">{props.description}</p>
+        
+
+    
+
         <Link
           to={"/Compra"}
           className="
