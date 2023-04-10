@@ -66,7 +66,9 @@ export function Camisas(){
                   ProductUrl={item.pieceUrl}
                   Description={item.description}
                   Code={item.code}
-                  price={item.priceInCents}/>
+                  price={item.priceInCents}
+                  id={item.id}
+                  Route={"/Shirt/"}/>
               </div>
             </section>
           )

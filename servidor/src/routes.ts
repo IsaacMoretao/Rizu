@@ -5,6 +5,7 @@ import { CreateBlousesController } from "./modules/ClothingParts/Blouses/useCase
 import { CreateClientController } from "./modules/client/useCases/createClient/CreateClientController";
 import { CreateShirtController } from "./modules/ClothingParts/Shirt/useCases/createShirt/CreateShirtController";
 import { CreatePantsController } from "./modules/ClothingParts/Pants/useCases/createpants/CreatePantsController";
+
 import { CreateTshirtController } from "./modules/ClothingParts/Tshirt/useCases/createTshirt/CreateTshirtController";
 import { CreateDressesController } from "./modules/ClothingParts/Dresses/useCases/createDresses/CreateDressesController";
 import { CreateAccessoriesController } from "./modules/ClothingParts/Accessories/useCases/createAccessories/CreateAccessoriesController";
@@ -14,6 +15,7 @@ import { FindAllPartsContoller } from "./modules/ClothingParts/AllParts/useCases
 import { FindAllAvailableController } from "./modules/ClothingParts/Blouses/useCases/AllBloses/FindBlosesController";
 import { FindAllPantsController } from "./modules/ClothingParts/Pants/useCases/AllPants/FindPantsController";
 import { FindAllShirtsController } from "./modules/ClothingParts/Shirt/useCases/AllShirts/FindShirtsController";
+
 import { FindAllTshirtsController } from "./modules/ClothingParts/Tshirt/useCases/FindAllTshirt/FindTshirtController";
 import { FindAccessoriesController } from "./modules/ClothingParts/Accessories/useCases/AllAccessories/FindAccessoriesController";
 import { FindAllDressesController } from "./modules/ClothingParts/Dresses/useCases/AllDresses/FindDressesController";
@@ -22,7 +24,12 @@ import { ListUsersController } from "./modules/client/useCases/listClients/ListU
 // <!-- <DELETE /> --> //
 import { DeleteUserById } from "./modules/client/useCases/deleteClient/DeleteUserController";
 import { LoginController } from "./modules/client/useCases/loginClient/LoginController";
+import { DeleteShirtById } from "./modules/ClothingParts/Shirt/useCases/DeleteShirt/DeleteShirtController";
+import { DeleteDressesById } from "./modules/ClothingParts/Dresses/useCases/DeleteDresses/DeleteDressesController";
 
+import { DeleteBlusesById } from "./modules/ClothingParts/Blouses/useCases/deleteBluses/DeleteBlusesController";
+import { DeleteAcessoriesById } from "./modules/ClothingParts/Accessories/useCases/DeleteAcessories/DeleteAcessoriesControler";
+import { DeleteTshirtController } from "./modules/ClothingParts/Tshirt/useCases/DeleteTshirt/DeleteTshirtController";
 
 const routes = Router();
 
@@ -49,7 +56,6 @@ const findAllDressesController = new FindAllDressesController();
 const findAccessoriesController = new FindAccessoriesController();
 const listUsersController = new ListUsersController();
 
-// <!-- <DELETE /> --> //
 
 // <!-- <POST /> -->
 routes.post('/client/', createClientController.handle);
@@ -74,7 +80,15 @@ routes.get('/dresses/find/', findAllDressesController.handle);
 routes.get('/shirt/find/', findAllShirtsController.handle);
 routes.get('/tshirt/find/', findAllTshirtsController.handle);
 
+
 // <!-- <DELETE /> --> //
 routes.delete('/delete/:id', DeleteUserById);
+routes.delete('/Shirt/:id', DeleteShirtById);
+routes.delete('/dresses/:id', DeleteDressesById);
+
+routes.delete('/Bluses/:id', DeleteBlusesById);
+routes.delete('/Acessories/:id', DeleteAcessoriesById);
+routes.delete('/Tshirt/:id', DeleteTshirtController);
+
 
 export { routes }

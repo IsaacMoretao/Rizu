@@ -16,7 +16,7 @@ export function TemplatePieceConsentimento(props: IConsentimento) {
   async function handleDelete() {
     try {
       window.location.reload();
-      await axios.delete(`http://localhost:3333/delete/${props.route}`);
+      await axios.delete(`http://localhost:3333/${props.route}`);
       
     } catch (e) {
       console.error(e);
