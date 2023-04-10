@@ -31,6 +31,8 @@ import { DeleteBlusesById } from "./modules/ClothingParts/Blouses/useCases/delet
 import { DeleteAcessoriesById } from "./modules/ClothingParts/Accessories/useCases/DeleteAcessories/DeleteAcessoriesControler";
 import { DeleteTshirtController } from "./modules/ClothingParts/Tshirt/useCases/DeleteTshirt/DeleteTshirtController";
 
+// <!-- <PUT /> --> //
+
 const routes = Router();
 
 // <!-- <POST /> --> //
@@ -89,6 +91,8 @@ routes.delete('/dresses/:id', DeleteDressesById);
 routes.delete('/Bluses/:id', DeleteBlusesById);
 routes.delete('/Acessories/:id', DeleteAcessoriesById);
 routes.delete('/Tshirt/:id', DeleteTshirtController);
+
+// <!-- <PUT /> --> //
 
 
 export { routes }

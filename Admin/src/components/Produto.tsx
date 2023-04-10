@@ -12,7 +12,6 @@ interface IProduto {
   Code: string,
   price: number,
   Route: string
-  id: string
 }
 
 export function Produto(props: IProduto) {
@@ -102,7 +101,7 @@ export function Produto(props: IProduto) {
         state={state}
         setState={setState} 
         Usuario={props.Title} 
-        route={`Shirt/${props.id}`}
+        route={props.Route}
       />
 
     </>

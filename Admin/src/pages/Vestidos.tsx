@@ -66,7 +66,9 @@ export function Vestidos(){
                   ProductUrl={item.pieceUrl}
                   Description={item.description}
                   Code={item.code}
-                  price={item.priceInCents}/>
+                  price={item.priceInCents}
+                  Route={`dresses/${item.id}`}
+                />
               </div>
             </section>
           )

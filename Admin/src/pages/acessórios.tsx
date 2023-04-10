@@ -25,7 +25,7 @@ export function Acessorios(){
   const [ display, setDisplay ] = useState("none")
 
   useEffect(() => {
-    fetch('http://localhost:3333/bloses/find/')
+    fetch('http://localhost:3333/acessories/find/')
     .then(response => response.json())
     .then(response => {
       setItems(response)
@@ -66,7 +66,8 @@ export function Acessorios(){
                   ProductUrl={item.pieceUrl}
                   Description={item.description}
                   Code={item.code}
-                  price={item.priceInCents}/>
+                  price={item.priceInCents}
+                  Route={`Acessories/${item.id}`}/>
               </div>
             </section>
           )
@@ -75,7 +76,7 @@ export function Acessorios(){
       <AddParts
         display={display}
         setDisplay={setDisplay}
-        route={"/blouses"}
+        route={"/Acessories"}
       />
     </>
   )
