@@ -1,7 +1,6 @@
 import { FormEvent, useState } from "react";
-import X from "../assets/letra-x.png"
-import { Link } from 'react-router-dom';
-import { api } from "../lib/axios";
+import X from "../../assets/letra-x.png"
+import { api } from "../../lib/axios";
 
 interface IAddParts {
   display: string,

@@ -2,12 +2,6 @@ import { prisma } from "../../../../../database/prismaClient";
 
 interface IRequest {
   id: string;
-  quantityPP: number;
-  quantityP: number;
-  quantityM: number;
-  quantityG: number;
-  quantityGG: number;
-
   priceInCents: number;
   title: string;
   description: string;
@@ -15,30 +9,18 @@ interface IRequest {
   tipe: string;
 }
 
-export class UpdateShirtUseCase {
+export class UpdateAcessoriesUseCase {
   async execute({
     id,
-    quantityPP,
-    quantityP,
-    quantityM,
-    quantityG,
-    quantityGG,
-
     priceInCents,
     title,
     description,
     pieceUrl,
     tipe,
   }: IRequest) {
-    const Shirt = await prisma.shirt.update({
+    const Acessories = await prisma.accessories.update({
       where: { id },
       data: { 
-        quantityPP,
-        quantityP,
-        quantityM,
-        quantityG,
-        quantityGG,
-    
         priceInCents,
         title,
         description,
@@ -47,6 +29,6 @@ export class UpdateShirtUseCase {
        },
     });
 
-    return Shirt;
+    return Acessories;
   }
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import X from "../assets/letra-x.png"
+import X from "../../assets/letra-x.png"
 import { Link } from 'react-router-dom';
 
 interface ITemplate {
@@ -10,7 +10,7 @@ interface ITemplate {
   setVisible: any;
 }
 
-export function Template(props: ITemplate){
+export function PieceOfClothing(props: ITemplate){
   
 
   function close() {
@@ -40,17 +40,6 @@ export function Template(props: ITemplate){
         <img src={props.image} className="h-auto rounded-xl w-[200px]"/>
         <span className="text-3xl p-3">{props.name}</span>
         <p className="h-full text-center">{props.description}</p>
-        
-
-    
-
-        <Link
-          to={"/Compra"}
-          className="
-          border-violet-600 border-2 bg-clip-text text-lg font-bold text-transparent
-          bg-gradient-to-r from-violet-600 to-pink-500 px-10 py-2 rounded-full">
-          COMPRAR
-        </Link>
 
         <footer
           className="flex gap-5">

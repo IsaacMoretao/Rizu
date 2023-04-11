@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import plus from "../assets/mais.png";
-import img from "../assets/image.png";
-import lixo from "../assets/lixo.png";
-import edit from "../assets/editar.png";
 import { User } from "../components/User";
-import { AddUserTemplate } from './../components/AddUserTemplate';
+import { AddUser } from '../components/Templates/AddUser';
 
 export function Users(){
 
@@ -63,7 +60,7 @@ export function Users(){
           )
         })}
       </div>
-      <AddUserTemplate
+      <AddUser
         state={state}
         setState={setState}
       />

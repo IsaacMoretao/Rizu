@@ -15,7 +15,7 @@ interface IRequest {
   tipe: string;
 }
 
-export class UpdateShirtUseCase {
+export class UpdateTshirtUseCase {
   async execute({
     id,
     quantityPP,
@@ -30,7 +30,7 @@ export class UpdateShirtUseCase {
     pieceUrl,
     tipe,
   }: IRequest) {
-    const Shirt = await prisma.shirt.update({
+    const Tshirt = await prisma.tshirts.update({
       where: { id },
       data: { 
         quantityPP,
@@ -47,6 +47,6 @@ export class UpdateShirtUseCase {
        },
     });
 
-    return Shirt;
+    return Tshirt;
   }
 }

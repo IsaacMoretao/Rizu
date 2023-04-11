@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import plus from "../assets/mais.png";
 import { Produto } from "../components/Produto";
-import { AddParts } from "../components/AddParts";
+import { AddParts } from "../components/Templates/AddParts";
 
 interface Shirt {
   id: string,
@@ -68,6 +68,13 @@ export function Blusas(){
                   Code={item.code}
                   price={item.priceInCents}
                   Route={`Bluses/${item.id}`}
+                  quantityPP={item.quantityPP}
+                  quantityP={item.quantityP}
+                  quantityM={item.quantityM}
+                  quantityG={item.quantityP}
+                  quantityGG={item.quantityGG}
+                  tipe={item.tipe} 
+                  edit={`/Update/Blouses/${item.id}`}
                 />
               </div>
             </section>

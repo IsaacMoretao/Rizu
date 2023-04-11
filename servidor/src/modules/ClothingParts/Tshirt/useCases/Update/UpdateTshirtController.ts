@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { UpdateShirtUseCase } from './UpdateShirtUseCase';
+import { UpdateTshirtUseCase } from './UpdateTshirtUseCase';
 
-export class UpdateShirtController {
+export class UpdateTshirtController {
   async update(request: Request, response: Response) {
     const { id } = request.params;
     const { 
@@ -17,9 +17,9 @@ export class UpdateShirtController {
       tipe
     } = request.body;
 
-    const updateShirt = new UpdateShirtUseCase();
+    const updateTshirt = new UpdateTshirtUseCase();
 
-    const Shirt = await updateShirt.execute({
+    const Tshirt = await updateTshirt.execute({
       id,
       quantityPP,
       quantityP,
@@ -34,6 +34,6 @@ export class UpdateShirtController {
       tipe
     });
 
-    return response.json(Shirt);
+    return response.json(Tshirt);
   }
 };

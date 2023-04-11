@@ -1,7 +1,7 @@
 import img from "../assets/image.png";
 import lixo from "../assets/lixo.png";
 import edit from "../assets/editar.png";
-import { TemplateConsentimento } from './TemplateConsentimento';
+import { DeleteUser } from './Templates/DeleteUser';
 import { useState } from "react";
 
 interface infoI {
@@ -60,7 +60,7 @@ export function User(props: infoI) {
         </div>
 
       </article>
-      <TemplateConsentimento
+      <DeleteUser
         state={state}
         setState={setState}
         Usuario={props.name}

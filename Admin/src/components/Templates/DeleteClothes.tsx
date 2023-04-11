@@ -1,16 +1,14 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-  interface IConsentimento {
-    state: string;
-    setState: any;
-    Usuario: string;
-    route: string;
-  }
+interface IConsentimento {
+  state: string;
+  setState: any;
+  Usuario: string;
+  route: string;
+}
 
-
-
-export function TemplatePieceConsentimento(props: IConsentimento) {
+export function DeleteClothes(props: IConsentimento) {
   const navigate = useNavigate();
 
   async function handleDelete() {
@@ -43,12 +41,12 @@ export function TemplatePieceConsentimento(props: IConsentimento) {
         className="p-10 rounded-xl flex-col w-[500px] gap-5 bg-white center">
 
         <strong>
-          DELETAR USUÁRIO ?
+          DELETAR PEÇA ?
         </strong>
 
         <p className="text-center">
           Você como administrador, tem a responsabilidade
-          e a permissão de Deletar o usuário <b>{props.Usuario}</b> ?
+          e a permissão de Deletar <b>{props.Usuario}</b> ?
         </p>
 
         <div className="flex gap-10">
@@ -61,7 +59,7 @@ export function TemplatePieceConsentimento(props: IConsentimento) {
           <button
             onClick={handleDelete}
             className="p-5 w-[160px] rounded-lg bg-purple-600 text-white">
-            Delete o usuário
+            Delete a peça
           </button>
         </div>
 

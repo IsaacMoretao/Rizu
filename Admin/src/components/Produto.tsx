@@ -1,9 +1,10 @@
-import { Template } from "./Template";
+import { PieceOfClothing } from "./Templates/PieceOfClothing";
 import { useState } from "react";
 import "../Styles/Responsividade.css";
 import lixo from "../assets/lixo.png"
 import lapis from "../assets/editar.png"
-import { TemplatePieceConsentimento } from "./TemplatePieceConsentimento";
+import { DeleteClothes } from "./Templates/DeleteClothes";
+import { EditOutfit } from "./Templates/EditOutfit";
 
 interface IProduto {
   Title: string,
@@ -11,19 +12,38 @@ interface IProduto {
   Description: string,
   Code: string,
   price: number,
-  Route: string
+  Route: string,
+  tipe: string,
+  edit: string,
+  
+  quantityPP?: number;
+  quantityP?: number;
+  quantityM?: number;
+  quantityG?: number;
+  quantityGG?: number;
 }
 
 export function Produto(props: IProduto) {
 
   const [visible, setVisible] = useState("none");
   const [state, setState] = useState("none")
+  const [edit, setEdit] = useState("none")
 
   function State() {
     if(state === "none"){
       setState("flex")
     } else if(state === "flex") {
       setState("none")
+    } else {
+      console.log("[[ERROR]]")
+    }
+  }
+
+  function Edit() {
+    if(edit === "none"){
+      setEdit("flex")
+    } else if(edit === "flex") {
+      setEdit("none")
     } else {
       console.log("[[ERROR]]")
     }
@@ -77,7 +97,7 @@ export function Produto(props: IProduto) {
               {props.Description}
               <div className="flex h-full flex-col relative min-w-[30px] justify-around">
                 <img src={lixo} className="w-[30px] absolute z-20" style={{top: "0"}} onClick={State}/>
-                <img src={lapis} className="w-[30px] absolute" style={{bottom: "0"}} />
+                <img src={lapis} className="w-[30px] absolute" style={{bottom: "0"}} onClick={Edit}  />
               </div>
             </main>
 
@@ -89,7 +109,7 @@ export function Produto(props: IProduto) {
         </section>
       </article>
 
-      <Template
+      <PieceOfClothing
         display={visible}
         name={props.Title}
         image={props.ProductUrl}
@@ -97,11 +117,27 @@ export function Produto(props: IProduto) {
         setVisible={setVisible}
       />
 
-      <TemplatePieceConsentimento
+      <DeleteClothes
         state={state}
         setState={setState} 
         Usuario={props.Title} 
         route={props.Route}
+      />
+
+      <EditOutfit
+        title={props.Title}
+        description={props.Description} 
+        pieceUrl={props.ProductUrl}
+        tipe={props.tipe}
+        priceInCents={props.price}
+        quantityPP={props.quantityPP}
+        quantityP={props.quantityP}
+        quantityM={props.quantityM}
+        quantityG={props.quantityG}
+        quantityGG={props.quantityGG}
+        display={edit}
+        setDisplay={setEdit}
+        route={props.edit}
       />
 
     </>

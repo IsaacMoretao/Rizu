@@ -11,6 +11,7 @@ import Vestido from '../assets/vestir.png';
 
 import Hamburguer from '../assets/menu-hamburguer.png';
 import Contact from '../assets/Contact.png';
+import Logo from '../assets/Logo-Oficial.png'
 import { useState } from 'react';
 
 export function Header(){
@@ -31,7 +32,7 @@ export function Header(){
         className="flex fixed px-10 w-full bg-vinho h-12 justify-between z-40 items-center Header">
         <Link to={'/'}>
           <figure className='flex gap-2'>
-            <h1 className='font-bold text-white'>Rizu</h1>
+            <img src={Logo} alt="Logo Oficial" className='h-[50px]' />
           </figure>
         </Link>
 

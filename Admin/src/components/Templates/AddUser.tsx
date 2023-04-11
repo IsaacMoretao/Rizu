@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
-import { api } from "../lib/axios";
-import X from "../assets/letra-x.png"
+import { api } from "../../lib/axios";
+import X from "../../assets/letra-x.png"
 
 interface ICreateUser {
   state: string;
@@ -8,7 +8,7 @@ interface ICreateUser {
 
 }
 
-export function AddUserTemplate(props: ICreateUser) {
+export function AddUser(props: ICreateUser) {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")

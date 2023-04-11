@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export function TemplateConsentimento(props: IConsentimento) {
+export function DeleteUser(props: IConsentimento) {
   const navigate = useNavigate();
 
   async function handleDelete() {

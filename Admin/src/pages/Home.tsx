@@ -6,8 +6,6 @@ import Acessórios from '../assets/Acessórios.png';
 import Calça from '../assets/Calça.png';
 import Vestido from '../assets/vestir.png';
 
-import Logo from '../assets/sacolas-de-compras.png';
-import Hamburguer from '../assets/menu-hamburguer.png';
 import { Link } from 'react-router-dom';
 
 export function Home() {

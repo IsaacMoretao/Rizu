@@ -12,9 +12,6 @@ export class LoginUseCases {
       where: {
         username: {
           equals: username,
-        },
-        password: {
-          equals: password
         }
       },
     });

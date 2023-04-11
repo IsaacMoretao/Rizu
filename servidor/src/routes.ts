@@ -31,7 +31,14 @@ import { DeleteBlusesById } from "./modules/ClothingParts/Blouses/useCases/delet
 import { DeleteAcessoriesById } from "./modules/ClothingParts/Accessories/useCases/DeleteAcessories/DeleteAcessoriesControler";
 import { DeleteTshirtController } from "./modules/ClothingParts/Tshirt/useCases/DeleteTshirt/DeleteTshirtController";
 
+
 // <!-- <PUT /> --> //
+import { UpdateShirtController } from "./modules/ClothingParts/Shirt/useCases/UpdateShirt/UpdateShirtController";
+import { UpdateTshirtController } from "./modules/ClothingParts/Tshirt/useCases/Update/UpdateTshirtController";
+import { UpdateDressesController } from "./modules/ClothingParts/Dresses/useCases/Update/UpdateDressesController";
+import { UpdateBlousesController } from "./modules/ClothingParts/Blouses/useCases/Update/UpdateBlousesController";
+import { UpdateAcessoriesController } from "./modules/ClothingParts/Accessories/useCases/Update/UpdateAcessoriesController";
+
 
 const routes = Router();
 
@@ -58,6 +65,13 @@ const findAllDressesController = new FindAllDressesController();
 const findAccessoriesController = new FindAccessoriesController();
 const listUsersController = new ListUsersController();
 
+
+// <!-- <PUT /> --> //
+const updateShirtController = new UpdateShirtController();
+const updateTshirtController = new UpdateTshirtController();
+const updateDressesController = new UpdateDressesController();
+const updateBlousesController = new UpdateBlousesController();
+const updateAcessoriesController = new UpdateAcessoriesController();
 
 // <!-- <POST /> -->
 routes.post('/client/', createClientController.handle);
@@ -93,6 +107,13 @@ routes.delete('/Acessories/:id', DeleteAcessoriesById);
 routes.delete('/Tshirt/:id', DeleteTshirtController);
 
 // <!-- <PUT /> --> //
+routes.put('/Update/Shirt/:id', updateShirtController.update);
+routes.put('/Update/Tshirt/:id', updateTshirtController.update);
+routes.put('/Update/Dresses/:id', updateDressesController.update);
+
+routes.put('/Update/Blouses/:id', updateBlousesController.update);
+routes.put('/Update/Acessories/:id', updateAcessoriesController.update);
+
 
 
 export { routes }

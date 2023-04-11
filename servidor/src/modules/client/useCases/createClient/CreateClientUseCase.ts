@@ -14,6 +14,9 @@ export class CreateClientUseCase {
         username: {
           equals: username,
         },
+        password: {
+          equals:
+        }
       },
     });
 
