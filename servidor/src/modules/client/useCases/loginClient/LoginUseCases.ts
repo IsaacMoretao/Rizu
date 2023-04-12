@@ -8,18 +8,25 @@ interface ICreateClient {
 export class LoginUseCases {
   
   async execute({ password, username }: ICreateClient) {
-    const clientExists = await prisma.admins.findFirst({
-      where: {
-        username: {
-          equals: username,
-        }
-      },
-    });
 
-    if (!clientExists) {
-      throw new Error('Client not exists');
+    const bcrypt = require('bcrypt');
+
+    try {
+      const user = await prisma.admins.findUnique({
+        where: {
+          username,
+        },
+      });
+  
+      if (!user) {
+        return false;
+      }
+
+      const match = await bcrypt.compare(password, user.password);
+      return match;
+
+    } catch (error) {
+      throw new Error('Erro ao verificar o nome de usuário e a senha.');
     }
-
-    return clientExists;
   }
 }

@@ -8,14 +8,18 @@ interface ICreateClient {
 }
 
 export class CreateClientUseCase {
+
+
   async execute({ password, username, avatarUrl }: ICreateClient) {
+
+
     const clientExists = await prisma.admins.findFirst({
       where: {
         username: {
           equals: username,
         },
         password: {
-          equals:
+          equals: password,
         }
       },
     });

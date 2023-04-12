@@ -30,7 +30,7 @@ export function Header(){
     <>
       <header
         className="flex fixed px-10 w-full bg-vinho h-12 justify-between z-40 items-center Header">
-        <Link to={'/'}>
+        <Link to={'/Home'}>
           <figure className='flex gap-2'>
             <img src={Logo} alt="Logo Oficial" className='h-[50px]' />
           </figure>

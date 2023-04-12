@@ -1,25 +1,29 @@
 import { FormEvent, useState } from "react"
 import { api } from "../lib/axios"
+import { useNavigate } from "react-router";
+import { useAuth } from "../hooks/useAuth";
 
 export function Login() {
 
-  const [name, setName] = useState('')
+  const { setUser } = useAuth();
+
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const [user, setUser] = useState("")
 
   async function userLog(event: FormEvent) {
     event.preventDefault()
   
     await api.post('/UserLog', {
-      name,
+      username,
       password
     })
     .then(response => {
-      console.log(response.data)
-      alert(response.data);
-      setUser(response.data);
-      console.log({user});
+      navigate('/Home')
+      setUser(true);
+
     })
     .catch(Response.error)
   
@@ -36,11 +40,15 @@ export function Login() {
           <input
             type="text"
             className="bg-transparent border-2 border-colorTxt rounded-lg w-[300px] p-2"
+            value={username}
+            onChange={event => setUsername(event.target.value)}
             placeholder="Nome:"
           />
           <input
             type="text"
             className="bg-transparent border-2 border-colorTxt rounded-lg w-[300px] p-2"
+            value={password}
+            onChange={event => setPassword(event.target.value)}
             placeholder="Senha:"
           />
           <button
