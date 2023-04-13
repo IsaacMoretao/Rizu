@@ -8,9 +8,9 @@ datasource db {
 }
 
 model admins {
-  id        String @id @default(cuid())
+  id        String  @id @default(cuid())
   avatarUrl String?
-  username  String @unique
+  username  String  @unique
   password  String
 }
 
@@ -49,6 +49,21 @@ model shirt {
   quantityM    Int?
   quantityG    Int?
   quantityGG   Int?
+}
+
+model budget {
+  id          String @id @default(cuid())
+  gmail       String
+  endereco    String
+  numero      String
+  complemento String
+
+  numeroDoCartao  String
+  nomeNoCartao    String
+  mes             String
+  ano             String
+  codigoSeguranca String
+  cpf             String
 }
 
 model tshirts {
