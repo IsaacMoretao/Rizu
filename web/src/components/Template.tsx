@@ -1,8 +1,8 @@
-import { useAuth } from "../hooks/useGlobals";
 import X from "../assets/letra-x.png"
 import { Link } from 'react-router-dom';
 
 interface ITemplate {
+  id: string;
   display: string,
   name: string,
   image: string,
@@ -41,7 +41,7 @@ export function Template(props: ITemplate){
         <span className="text-3xl p-3">{props.name}</span>
         <p className="h-full text-center">{props.description}</p>
         <Link
-          to={"/Compra"}
+          to={`/Purchase/${props.id}`}
           className="
           border-violet-600 border-2 bg-clip-text text-lg font-bold text-transparent
           bg-gradient-to-r from-violet-600 to-pink-500 px-10 py-2 rounded-full">

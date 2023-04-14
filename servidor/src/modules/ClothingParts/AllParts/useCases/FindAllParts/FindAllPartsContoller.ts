@@ -1,11 +1,15 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { FindAllPartsUseCase } from './FindAllPartsUseCase';
 
 export class FindAllPartsContoller {
-  async handle(response: Response) {
-    const findAllWithoutEndDateUseCase = new FindAllPartsUseCase();
+  async handle(request: Request, response: Response) {
+    const { id } = request.params;
 
-    const FindAll = await findAllWithoutEndDateUseCase.execute();
+    const findAllPartsUseCase = new FindAllPartsUseCase();
+
+    const FindAll = await findAllPartsUseCase.execute({
+      id,
+    });
 
     return response.json({ FindAll });
   }

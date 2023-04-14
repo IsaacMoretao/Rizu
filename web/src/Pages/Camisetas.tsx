@@ -54,6 +54,7 @@ export function Camisetas(){
                 Description={item.description}
                 Code={item.code}
                 price={item.priceInCents}
+                id={item.id}              
               />
             </div>
           </div>

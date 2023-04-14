@@ -1,5 +1,22 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { useState } from 'react';
+interface Acessories {
+  id: string,
+  code: string,
+  title: string,
+  description: string,
+  pieceUrl: string,
+  tipe: string,
+
+  priceInCents: number,
+  quantityPP?: number,
+  quantityP?: number,
+  quantityM?: number,
+  quantityG?: number,
+  quantityGG?: number
+
+}
 
 export function Compra(){
 
@@ -21,6 +38,28 @@ export function Compra(){
   const [codigoSegurança, setCodigoSegurança] = useState<number | undefined>();
   const [cpf, setCpf] = useState<number | undefined>();
 
+  let { id } = useParams();
+
+  const [ items, setItems ] = useState<Acessories[] | null>(null);
+
+
+  useEffect(() => {
+    fetch(`http://localhost:3333/allParts/${id}`)
+    .then(response => response.json())
+    .then((data: Acessories[]) => setItems(data));
+}, []);
+
+ console.log(items)
+  
+ items ? (
+  <ul>
+    {items.map(item => (
+      <li key={item.id}>{item.}</li>
+    ))}
+  </ul>
+) : (
+  <p>Loading...</p>
+)
 
   return(
     <main className="bricks center">

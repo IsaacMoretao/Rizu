@@ -4,7 +4,7 @@ export function FinalPurchase(){
   return(
     <div className=" center  main bricks">
       <div
-      className=" center  flex-col w-[70%]
+      className="center flex-col w-[70%]
       bg-transparentBlack rounded-xl text-white pt-10">
         <strong className="text-2xl">
           Não foi possivel Realizar a compra!

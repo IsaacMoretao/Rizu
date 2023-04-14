@@ -26,12 +26,11 @@ export function Camisas(){
   const [ notItem, setNotItem] = useState('');
 
 
-
   useEffect(() => {
     fetch('http://localhost:3333/shirt/find/')
     .then(response => response.json())
     .then(response => {
-      setItems(response)
+      setItems(response.data)
     })
     if(!items){
       setNotItem('flex');
@@ -39,6 +38,8 @@ export function Camisas(){
       setNotItem('none');
     }
   }, []) 
+
+
 
   return(
     <main className='flex flex-col justify-center items-center main background'>
@@ -56,6 +57,7 @@ export function Camisas(){
                 Description={item.description}
                 Code={item.code}
                 price={item.priceInCents}
+                id={item.id}              
               />
             </div>
           </div>

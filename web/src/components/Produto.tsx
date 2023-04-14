@@ -3,11 +3,12 @@ import { useState } from "react";
 import "../Styles/Responsividade.css"
 
 interface IProduto {
-  Title: string,
-  ProductUrl: string,
-  Description: string,
-  Code: string,
-  price: number,
+  id: string;
+  Title: string;
+  ProductUrl: string;
+  Description: string;
+  Code: string;
+  price: number;
 }
 
 export function Produto(props: IProduto) {
@@ -60,7 +61,7 @@ export function Produto(props: IProduto) {
         image={props.ProductUrl}
         description={props.Description}
         setVisible={setVisible}
-      />
+        id={props.id}      />
     </>
   )
 }

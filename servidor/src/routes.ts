@@ -87,7 +87,7 @@ routes.post('/UserLog/', loginController.handle);
 
 // <!-- <GET /> -->
 routes.get('/acessories/find/', findAccessoriesController.handle);
-routes.get('/allParts/', findAllPartsContoller.handle);
+routes.get('/allParts/:id', findAllPartsContoller.handle); 
 routes.get('/bloses/find/', findAllAvailableController.handle);
 routes.get('/pants/find/', findAllPantsController.handle);
 
