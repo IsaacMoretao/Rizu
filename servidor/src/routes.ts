@@ -14,12 +14,15 @@ import { CreateAccessoriesController } from "./modules/ClothingParts/Accessories
 import { FindAllPartsContoller } from "./modules/ClothingParts/AllParts/useCases/FindAllParts/FindAllPartsContoller";
 import { FindAllAvailableController } from "./modules/ClothingParts/Blouses/useCases/AllBloses/FindBlosesController";
 import { FindAllPantsController } from "./modules/ClothingParts/Pants/useCases/AllPants/FindPantsController";
-import { FindAllShirtsController } from "./modules/ClothingParts/Shirt/useCases/AllShirts/FindShirtsController";
 
+import { FindAllShirtsController } from "./modules/ClothingParts/Shirt/useCases/AllShirts/FindShirtsController";
 import { FindAllTshirtsController } from "./modules/ClothingParts/Tshirt/useCases/FindAllTshirt/FindTshirtController";
 import { FindAccessoriesController } from "./modules/ClothingParts/Accessories/useCases/AllAccessories/FindAccessoriesController";
+
 import { FindAllDressesController } from "./modules/ClothingParts/Dresses/useCases/AllDresses/FindDressesController";
 import { ListUsersController } from "./modules/client/useCases/listClients/ListUsersController";
+import { MakepurchaseController } from "./modules/ClothingParts/AllParts/useCases/makepurchase/MakepurchaseController";
+
 
 // <!-- <DELETE /> --> //
 import { DeleteUserById } from "./modules/client/useCases/deleteClient/DeleteUserController";
@@ -39,7 +42,6 @@ import { UpdateDressesController } from "./modules/ClothingParts/Dresses/useCase
 import { UpdateBlousesController } from "./modules/ClothingParts/Blouses/useCases/Update/UpdateBlousesController";
 import { UpdateAcessoriesController } from "./modules/ClothingParts/Accessories/useCases/Update/UpdateAcessoriesController";
 
-
 const routes = Router();
 
 // <!-- <POST /> --> //
@@ -58,12 +60,14 @@ const loginController = new LoginController();
 const findAllPartsContoller = new FindAllPartsContoller();
 const findAllAvailableController = new FindAllAvailableController();
 const findAllPantsController = new FindAllPantsController();
-const findAllShirtsController = new FindAllShirtsController();
 
+const findAllShirtsController = new FindAllShirtsController();
 const findAllTshirtsController = new FindAllTshirtsController();
 const findAllDressesController = new FindAllDressesController();
+
 const findAccessoriesController = new FindAccessoriesController();
 const listUsersController = new ListUsersController();
+const makepurchaseController = new MakepurchaseController();
 
 
 // <!-- <PUT /> --> //
@@ -72,6 +76,7 @@ const updateTshirtController = new UpdateTshirtController();
 const updateDressesController = new UpdateDressesController();
 const updateBlousesController = new UpdateBlousesController();
 const updateAcessoriesController = new UpdateAcessoriesController();
+
 
 // <!-- <POST /> -->
 routes.post('/client/', createClientController.handle);
@@ -89,12 +94,14 @@ routes.post('/UserLog/', loginController.handle);
 routes.get('/acessories/find/', findAccessoriesController.handle);
 routes.get('/allParts/:id', findAllPartsContoller.handle); 
 routes.get('/bloses/find/', findAllAvailableController.handle);
-routes.get('/pants/find/', findAllPantsController.handle);
 
+routes.get('/pants/find/', findAllPantsController.handle);
 routes.get('/client/find/', listUsersController.handle);
 routes.get('/dresses/find/', findAllDressesController.handle);
+
 routes.get('/shirt/find/', findAllShirtsController.handle);
 routes.get('/tshirt/find/', findAllTshirtsController.handle);
+routes.get('/makepurchase/', makepurchaseController.handle);
 
 
 // <!-- <DELETE /> --> //
@@ -113,7 +120,6 @@ routes.put('/Update/Dresses/:id', updateDressesController.update);
 
 routes.put('/Update/Blouses/:id', updateBlousesController.update);
 routes.put('/Update/Acessories/:id', updateAcessoriesController.update);
-
 
 
 export { routes }

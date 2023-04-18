@@ -27,7 +27,7 @@ export function Camisas(){
 
 
   useEffect(() => {
-    fetch('http://localhost:3333/shirt/find/')
+    fetch('http://localhost:3333/shirt/find')
     .then(response => response.json())
     .then(response => {
       setItems(response.data)
@@ -38,16 +38,16 @@ export function Camisas(){
       setNotItem('none');
     }
   }, []) 
-
+ console.log(items)
 
 
   return(
     <main className='flex flex-col justify-center items-center main background'>
       <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
-        <img src={Sorriso} alt="" />
+        <img src={Sorriso} />
         Não há nenhum item em estoque.
       </span>
-      {items.map (item => {
+      {items?.map (item => {
         return (
           <div key={item.id} className='w-full'>
             <div>

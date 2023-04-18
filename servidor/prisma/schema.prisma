@@ -123,3 +123,34 @@ model accessories {
   tipe         String
   priceInCents Int
 }
+
+model finalPurchase {
+  id String @id @default(cuid())
+
+  quantitPP Int?
+  quantitP  Int?
+  quantitM  Int?
+  quantitG  Int?
+  quantitGG Int?
+
+  quantitI     Int?
+  quantitII    Int?
+  quantitIII   Int?
+  quantitIIII  Int?
+  quantitV     Int?
+  quantitIV    Int?
+  quantitIIV   Int?
+  quantitIIIV  Int?
+  quantitIIIIV Int?
+
+  gmail        String
+  address      String
+  number       String
+  complement   String?
+  cardNumber   String
+  nameOnCard   String
+  expiryMonth  Int
+  expiryYear   Int
+  securityCode Int
+  holderSCpf   Int
+}
