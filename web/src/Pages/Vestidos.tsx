@@ -31,35 +31,42 @@ export function Vestidos(){
     .then(response => {
       setItems(response)
     })
-    if(!items){
-      setNotItem('flex');
-    } else {
-      setNotItem('none');
-    }
+
   }, []) 
 
   return(
     <main className='flex flex-col justify-center items-center main background'>
-      <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
-        <img src={Sorriso} alt="" />
-        Não há nenhum item em estoque.
-      </span>
-      {items.map (item => {
-        return (
-          <div key={item.id} className='w-full'>
-            <div>
-              <Produto
-                Title={item.title}
-                ProductUrl={item.pieceUrl}
-                Description={item.description}
-                Code={item.code}
-                price={item.priceInCents}
-                id={item.id}              
-              />
+      {items.length == 0 ?
+
+        <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
+          <img src={Sorriso} alt="" />
+          Não há nenhum item em estoque.
+        </span>
+
+      :
+
+      <>
+        {items.map (item => {
+          return (
+            <div key={item.id} className='w-full'>
+              <div>
+                <Produto
+                  Title={item.title}
+                  ProductUrl={item.pieceUrl}
+                  Description={item.description}
+                  Code={item.code}
+                  price={item.priceInCents}
+                  id={item.id}              
+                />
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </>
+
+      }
+
+
 
     </main>
   )

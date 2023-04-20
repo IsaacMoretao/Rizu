@@ -5,7 +5,8 @@ export class MakepurchaseController {
 
   async handle(request: Request, response: Response) {
 
-    const { 
+    const {
+      partId,
       gmail,
       address,
       number,
@@ -38,6 +39,7 @@ export class MakepurchaseController {
     const makepurchaseUseCase = new MakepurchaseUseCase();
 
     const compra = await makepurchaseUseCase.execute({
+      partId,
       gmail,
       address,
       number,

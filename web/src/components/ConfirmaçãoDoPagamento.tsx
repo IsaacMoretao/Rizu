@@ -4,22 +4,12 @@ import { useNavigate } from "react-router-dom";
   interface IConsentimento {
     state: string;
     setState: any;
-    Usuario: string;
-    id: string;
+    function: any;
+    title: string;
   }
+export function ConfirmaçãoDoPagamento(props:IConsentimento){
 
-export function DeleteUser(props: IConsentimento) {
-  const navigate = useNavigate();
 
-  async function handleDelete() {
-    try {
-      window.location.reload();
-      await axios.delete(`http://localhost:3333/delete/${props.id}`);
-      
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   function stateTemplate(){
 
@@ -34,6 +24,7 @@ export function DeleteUser(props: IConsentimento) {
   }
 
   return(
+    
     <body
       className="h-[100vh] w-[100%] bg-transparentBlack fixed z-50 center"
       style={{top: "0", right: "0", display: props.state}}>
@@ -46,7 +37,7 @@ export function DeleteUser(props: IConsentimento) {
 
         <p className="text-center">
           Você como administrador, tem a responsabilidade
-          e a permissão de Deletar o usuário <b>{props.Usuario}</b> ?
+          e a permissão de Deletar o usuário <b>{props.title}</b> ?
         </p>
 
         <div className="flex gap-10">
@@ -57,7 +48,7 @@ export function DeleteUser(props: IConsentimento) {
           </button>
 
           <button
-            onClick={handleDelete}
+            onClick={props.function}
             className="p-5 w-[160px] rounded-lg bg-purple-600 text-white">
             Delete o usuário
           </button>
@@ -67,5 +58,3 @@ export function DeleteUser(props: IConsentimento) {
     </body>
   )
 }
-
-

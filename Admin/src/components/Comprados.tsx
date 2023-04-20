@@ -16,6 +16,7 @@ interface IComprado {
   quantitII?: number;
   quantitIII?: number;
   quantitIIII?: number;
+
   quantitV?: number;
   quantitIV?: number;
   quantitIIV?: number;
@@ -27,11 +28,9 @@ interface IComprado {
 
 export function Comprados(props: IComprado){
 
-
-
   return(
     <>
-      <section className='border flex gap-7 w-[80%] border-black rounded-md p-5'>
+      <section className='border flex gap-7 w-[80%] border-black ro-unded-md p-5'>
         <div
           className="flex items-center flex-col h-full relative">
           <figure className="flex relative h-full w-[200px]">
@@ -45,123 +44,117 @@ export function Comprados(props: IComprado){
             {props.Code}
           </p>
         </div>
-        <div>
+        <div className="flex flex-col gap-3">
           <header>
             {props.name}
           </header>
-          <main>
+          <main className="text-2xl">
             {props.Endereço} N:{props.EndereçoNum}
           </main>
-          <footer className="flex">
+          <footer className="flex gap-3">
 
           {props.quantitPP ?
               <div>
-                PP: <b>{props.quantitPP}UND</b> 
+                <b>PP:</b> {props.quantitPP}-UND 
               </div>
             :
               <></>
             }
             {props.quantitP ?
               <div>
-                P: <b>{props.quantitP}UND</b>
+                <b>P:</b> {props.quantitP}-UND
               </div>
             :
               <></>
             }
             {props.quantitM ?
               <div>
-                M: <b>{props.quantitM}UND</b>
+                <b>M:</b> {props.quantitM}-UND
               </div>
             :
               <></>
             }
             {props.quantitG ?
               <div>
-                G: <b>{props.quantitG}UND</b>
+                <b>G:</b> {props.quantitG}-UND
               </div>
             :
               <></>
             }
             {props.quantitGG ?
               <div>
-                GG: <b>{props.quantitGG}UND</b>
+                <b>GG:</b> {props.quantitGG}-UND
               </div>
             :
               <></>
             }
 
-
-
-
-
-
-
             {props.quantitI ?
               <div>
-                34: {props.quantitI}UND
+                <b>34:</b> {props.quantitI}-UND
               </div>
             :
               <></>
             }
             {props.quantitII ?
               <div>
-                36: {props.quantitII}UND
+                <p>36:</p> {props.quantitII}-UND
               </div>
             :
               <></>
             }
             {props.quantitIII ?
               <div>
-                38: {props.quantitIII}UND
+                <p>38:</p> {props.quantitIII}-UND
               </div>
             :
               <></>
             }
             {props.quantitIIII ?
               <div>
-                40: {props.quantitIIII}UND
+                <b>40:</b> {props.quantitIIII}-UND
               </div>
             :
               <></>
             }
             {props.quantitV ?
               <div>
-                42: {props.quantitV}UND
+                <b>42:</b> {props.quantitV}-UND
               </div>
             :
               <></>
             }
             {props.quantitIV ?
               <div>
-                44: {props.quantitIV}UND
+                <b>44:</b> {props.quantitIV}-UND
               </div>
             :
               <></>
             }
             {props.quantitIIV ?
               <div>
-                46: {props.quantitIIV}UND
+                <b>46:</b>  {props.quantitIIV}-UND
               </div>
             :
               <></>
             }
             {props.quantitIIIV ?
               <div>
-                48: {props.quantitIIIV}UND
+                <b>48:</b> {props.quantitIIIV}-UND
               </div>
             :
               <></>
             }
             {props.quantitIIIIV ?
               <div>
-                50: {props.quantitIIIIV}UND
+                <b>50:</b> {props.quantitIIIIV}-UND
               </div>
             :
               <></>
             }
             {props.quantitIIIV ?
               <div>
-                52: {props.quantitIIIV}UND
+                <b>52:</b>{props.quantitIIIV}-UND
               </div>
             :
               <></>

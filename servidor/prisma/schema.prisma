@@ -143,6 +143,7 @@ model finalPurchase {
   quantitIIIV  Int?
   quantitIIIIV Int?
 
+  partId       String
   gmail        String
   address      String
   number       String

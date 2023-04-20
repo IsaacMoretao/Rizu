@@ -1,6 +1,7 @@
 import { prisma } from '../../../../../database/prismaClient';
 
 interface IRequest {
+  partId: string;
   quantitPP?: number;
   quantitP?: number;
   quantitM?: number;
@@ -32,6 +33,7 @@ interface IRequest {
 
 export class MakepurchaseUseCase {
   async execute({
+    partId,
     quantitPP,
     quantitP,
     quantitM,
@@ -63,6 +65,7 @@ export class MakepurchaseUseCase {
 
     const criar = await prisma.finalPurchase.create({
       data: {
+        partId,
         gmail,
         address,
         number,
