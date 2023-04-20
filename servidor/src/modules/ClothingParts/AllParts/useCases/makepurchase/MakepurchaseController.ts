@@ -2,10 +2,9 @@ import { Request, Response } from 'express';
 import { MakepurchaseUseCase } from './MakepurchaseUseCase';
 
 export class MakepurchaseController {
-  async handle(request: Request, response: Response) {
-    const makepurchaseUseCase = new MakepurchaseUseCase();
 
-    const { id } = request.params;
+  async handle(request: Request, response: Response) {
+
     const { 
       gmail,
       address,
@@ -17,6 +16,7 @@ export class MakepurchaseController {
       expiryYear,
       securityCode,
       holderSCpf,
+
       quantitPP,
       quantitP,
       quantitM,
@@ -27,6 +27,7 @@ export class MakepurchaseController {
       quantitII,
       quantitIII,
       quantitIIII,
+
       quantitV,
       quantitIV,
       quantitIIV,
@@ -34,10 +35,9 @@ export class MakepurchaseController {
       quantitIIIIV
     } = request.body;
 
-    const updateShirt = new MakepurchaseUseCase();
+    const makepurchaseUseCase = new MakepurchaseUseCase();
 
-    const compra = await updateShirt.execute({
-      
+    const compra = await makepurchaseUseCase.execute({
       gmail,
       address,
       number,
@@ -53,7 +53,7 @@ export class MakepurchaseController {
       quantitM,
       quantitG,
       quantitGG,
-    
+      
       quantitI,
       quantitII,
       quantitIII,
@@ -63,6 +63,7 @@ export class MakepurchaseController {
       quantitIIV,
       quantitIIIV,
       quantitIIIIV
+
     });
 
     return response.json(compra);

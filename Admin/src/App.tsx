@@ -14,6 +14,8 @@ import { Vestidos } from "./pages/Vestidos";
 
 import { Acessorios } from "./pages/acessórios";
 import { useAuth } from "./hooks/useAuth";
+import { Compra } from "./pages/Compras";
+
 
 function App() {
   const { user } = useAuth();
@@ -81,6 +83,13 @@ function App() {
                 <>
                   <Header/>
                   <Users/> 
+                </>
+              } />
+            <Route path="/Compra"
+              element={
+                <>
+                  <Header/>
+                  <Compra/> 
                 </>
               } />
         </>

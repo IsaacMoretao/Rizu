@@ -1,38 +1,6 @@
 import { prisma } from '../../../../../database/prismaClient';
 
 interface IRequest {
-  id: string;
-  quantityPP?: number;
-  quantityP?: number;
-  quantityM?: number;
-  quantityG?: number;
-  quantityGG?: number;
-
-  quantityI?: number;
-  quantityII?: number;
-  quantityIII?: number;
-  quantityIIII?: number;
-  quantityV?: number;
-  quantityIV?: number;
-  quantityIIV?: number;
-  quantityIIIV?: number;
-  quantityIIIIV?: number;
-
-  gmail: string;
-  address: string;
-  number: string;
-  complement?: string;
-  cardNumber: string;
-  nameOnCard: string;
-  expiryMonth: number;
-  expiryYear: number;
-  securityCode: number;
-  holderSCpf: number;
-
-}
-
-interface IRequestII {
-  id: string;
   quantitPP?: number;
   quantitP?: number;
   quantitM?: number;
@@ -48,26 +16,37 @@ interface IRequestII {
   quantitIIV?: number;
   quantitIIIV?: number;
   quantitIIIIV?: number;
+
+  gmail: string;
+  address: string;
+  number: string;
+  complement?: string;
+  cardNumber: string;
+  nameOnCard: string;
+  expiryMonth: number;
+  expiryYear: number;
+  securityCode: number;
+  holderSCpf: number;
+
 }
 
 export class MakepurchaseUseCase {
   async execute({
-    id,
-    quantityPP,
-    quantityP,
-    quantityM,
-    quantityG,
-    quantityGG,
+    quantitPP,
+    quantitP,
+    quantitM,
+    quantitG,
+    quantitGG,
 
-    quantityI,
-    quantityII,
-    quantityIII,
-    quantityIIII,
-    quantityV,
-    quantityIV,
-    quantityIIV,
-    quantityIIIV,
-    quantityIIIIV,
+    quantitI,
+    quantitII,
+    quantitIII,
+    quantitIIII,
+    quantitV,
+    quantitIV,
+    quantitIIV,
+    quantitIIIV,
+    quantitIIIIV,
 
     gmail,
     address,
@@ -80,23 +59,7 @@ export class MakepurchaseUseCase {
     securityCode,
     holderSCpf,
 
-  }: IRequest,
-  {
-  quantitPP,
-  quantitP,
-  quantitM,
-  quantitG,
-  quantitGG,
-
-  quantitI,
-  quantitII,
-  quantitIII,
-  quantitIIII,
-  quantitV,
-  quantitIV,
-  quantitIIV,
-  quantitIIIV,
-  quantitIIIIV}:IRequestII) {
+  }: IRequest) {
 
     const criar = await prisma.finalPurchase.create({
       data: {
@@ -110,6 +73,7 @@ export class MakepurchaseUseCase {
         expiryYear,
         securityCode,
         holderSCpf,
+        
         quantitPP,
         quantitP,
         quantitM,
