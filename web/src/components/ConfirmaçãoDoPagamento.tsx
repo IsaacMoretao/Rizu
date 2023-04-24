@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 
   interface IConsentimento {
     state: string;
@@ -32,12 +31,11 @@ export function ConfirmaçãoDoPagamento(props:IConsentimento){
         className="p-10 rounded-xl flex-col w-[500px] gap-5 bg-white center">
 
         <strong>
-          DELETAR USUÁRIO ?
+          FINALIZANDO A COMPRA!
         </strong>
 
         <p className="text-center">
-          Você como administrador, tem a responsabilidade
-          e a permissão de Deletar o usuário <b>{props.title}</b> ?
+          Se ouver algum erro nas informações do formulário, a compra será <b>cancelada</b> .
         </p>
 
         <div className="flex gap-10">
@@ -50,7 +48,7 @@ export function ConfirmaçãoDoPagamento(props:IConsentimento){
           <button
             onClick={props.function}
             className="p-5 w-[160px] rounded-lg bg-purple-600 text-white">
-            Delete o usuário
+            Comprar produto
           </button>
         </div>
 

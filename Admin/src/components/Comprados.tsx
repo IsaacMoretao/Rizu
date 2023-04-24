@@ -3,7 +3,7 @@ interface IComprado {
   ProductUrl: string;
   Code: string;
   Endereço: string;
-  EndereçoNum: number;
+  EndereçoNum: string;
   name: string;
 
   quantitPP?: number;

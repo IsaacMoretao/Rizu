@@ -36,7 +36,7 @@ export function Compra(){
   const[items, setItems] = useState<IResponse[]>([])
 
   useEffect(() => {
-    fetch('http://localhost:3333/bloses/find/')
+    fetch('http://localhost:3333/Allpurchase')
     .then(response => response.json())
     .then(response => {
       setItems(response)
@@ -44,19 +44,35 @@ export function Compra(){
 
   }, []) 
 
+  console.log(items)
+
   return(
-    <div className="center page">
-      <Comprados
-        ProductUrl={"https://cdn-icons-png.flaticon.com/512/2984/2984864.png"}
-        Code={'PINKB'}
-        Endereço={'AV.antonio'}
-        EndereçoNum={200}
-        name={'Isaac Moleton'}
-        quantitGG={3}
-        quantitP={3}
-        quantitPP={3}
-        quantitG={3}
-        quantitM={3}/>
+    <div className="center page flex-col gap-5">
+      {items.map (item => {
+        return (
+          <Comprados
+            ProductUrl={"sdfsdf"}
+            Code={'PINKB'}
+            Endereço={item.address}
+            EndereçoNum={item.number}
+            name={item.nameOnCard}
+            quantitGG={item.quantitGG}
+            quantitP={item.quantitP}
+            quantitPP={item.quantitPP}
+            quantitG={item.quantitG}
+            quantitM={item.quantitM}
+            quantitI={item.quantitI}
+            quantitII={item.quantitII}
+            quantitIII={item.quantitIII}
+            quantitIIII={item.quantitIIII}
+            quantitV={item.quantitV}
+            quantitIV={item.quantitIV}
+            quantitIIV={item.quantitIIV}
+            quantitIIIV={item.quantitIIIV}
+            quantitIIIIV={item.quantitIIIIV}
+          />
+        )
+      })}
     </div>
   )
 }

@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import Sorriso from '../assets/icon-sorriso.png'
 import { api } from '../lib/axios';
 import { ConfirmaçãoDoPagamento } from '../components/ConfirmaçãoDoPagamento';
+import { useNavigate } from "react-router-dom";
+
 
 interface Acessories {
   id: string,
@@ -53,24 +55,27 @@ export function Compra(){
   const [quantityIIIIV, setQuantityIIIIV] = useState<number | undefined>();
 
   const [gmail, setGmail] = useState("");
-  const [endereco, setEndereco] = useState("");
-  const [numero, setNumero] = useState<number | undefined>();
-  const [complemento, setComplemento] = useState("");
+  const [address, setAddress] = useState("");
+  const [number, setNumber] = useState("");
+  const [complement, setComplement] = useState("");
 
-  const [numeroDoCartao, setNumeroDoCartao] = useState<number | undefined>();
-  const [nomeNoCartao, setNomeNoCartao] = useState("");
-  const [mes, setMes] = useState<number | undefined>();
-  const [ano, setAno] = useState<number | undefined>();
-  const [codigoSegurança, setCodigoSegurança] = useState<number | undefined>();
+  const [cardNumber, setCardNumber] = useState("");
+  const [nameOnCard, setNameOnCard] = useState("");
+  const [expiryMonth, setExpiryMonth] = useState<number | undefined>();
+  const [expiryYear, setExpiryYear] = useState<number | undefined>();
+  const [securityCode, setSecurityCode] = useState<number | undefined>();
   const [holderSCpf, setHolderSCpf] = useState<number | undefined>();
 
   let { id } = useParams();
+  let partId = id
   
   const [ items, setItems ] = useState<Acessories>();
-  const idURL = (items?.id) == id
+  const idURL = (items?.id) == partId
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3333/allParts/${id}`)
+    fetch(`http://localhost:3333/allParts/${partId}`)
     .then(response => response.json())
     .then((data) => setItems(data.FindAll));
   }, []);
@@ -79,7 +84,7 @@ export function Compra(){
     event.preventDefault()
 
     await api.post(`/makepurchase/`, {
-      partId: id,
+      partId,
       quantityPP,
       quantityP,
       quantityM,
@@ -98,20 +103,21 @@ export function Compra(){
       quantityIIIIV,
 
       gmail,
-      endereco,
-      numero,
-      complemento,
-      numeroDoCartao,
-      mes,
-      ano,
-      codigoSegurança,
-      holderSCpf
+      address,
+      number,
+      complement,
+      cardNumber,
+      nameOnCard,
+      expiryMonth,
+      expiryYear,
+      securityCode,
+      holderSCpf,
 
     })
     .then(response => {
-      window.location.reload();
+      navigate("/")
 
-    })
+    });
 
   }
 
@@ -119,7 +125,19 @@ export function Compra(){
   quantityI || quantityII || quantityIII || quantityIIII || quantityV || quantityIV ||
   quantityIIV || quantityIIIV || quantityIIIIV 
 
-  const FormValid = gmail && endereco && numero && numeroDoCartao && mes && ano && codigoSegurança && holderSCpf && UmItem
+  const FormValid = gmail && address && number && cardNumber && expiryMonth && expiryYear && securityCode && holderSCpf && UmItem
+
+  function stateTemplate(){
+
+    if(state == "none"){
+      setState("flex")
+    } else if (state == "flex"){
+      setState("none")
+    } else {
+      console.log('[[ERROR]] Internal Server Error [[ERROR]]')
+    }
+
+  }
 
   return(  
     <>
@@ -128,6 +146,7 @@ export function Compra(){
       {idURL? 
       
       <form
+      
         className="bg-vinho min-h-[80vh] w-auto p-10 border-yellow border-2
         gap-5 m-[100px] text-yellow center flex-col rounded-xl center">
       <strong>COMPRA</strong>
@@ -343,9 +362,9 @@ export function Compra(){
         <div className='flex gap-3'>
           <input
             className='w-[196px] p-2 border-b-2 border-yellow bg-transparent'
-            placeholder='Endereco:'
-            value={endereco}
-            onChange={event => setEndereco(event.target.value)}
+            placeholder='address:'
+            value={address}
+            onChange={event => setAddress(event.target.value)}
             type="text"
           />
 
@@ -353,8 +372,8 @@ export function Compra(){
             type="number"
             className="p-2 border-b-2 border-yellow bg-transparent w-[96px]"
             min="0"
-            value={numero}
-            onChange={event => setNumero(event.target.valueAsNumber)}
+            value={number}
+            onChange={event => setNumber(event.target.value)}
             placeholder="Numero:"
           />
         </div>
@@ -362,9 +381,9 @@ export function Compra(){
         <input
           type="text"
           className="p-2 border-b-2 border-yellow bg-transparent w-[300px]"
-          value={complemento}
-          onChange={event => setComplemento(event.target.value)}
-          placeholder="Complemento:"
+          value={complement}
+          onChange={event => setComplement(event.target.value)}
+          placeholder="Complement:"
         />
 
         <strong>DADOS DO CARTÂO</strong>
@@ -373,15 +392,15 @@ export function Compra(){
           <input
             className="p-2 border-b-2 border-yellow bg-transparent w-[250px]"
             type="number"
-            value={numeroDoCartao}
-            onChange={event => setNumeroDoCartao(event.target.valueAsNumber)}
+            value={cardNumber}
+            onChange={event => setCardNumber(event.target.value)}
             placeholder="numero do cartão:"
           />
 
           <input
             className="p-2 border-b-2 border-yellow bg-transparent w-[250px]"
-            value={nomeNoCartao}
-            onChange={event => setNomeNoCartao(event.target.value)}
+            value={nameOnCard}
+            onChange={event => setNameOnCard(event.target.value)}
             type="text"
             placeholder="Nome impresso no cartão:"
           />
@@ -396,18 +415,18 @@ export function Compra(){
               <input
                 type="number"
                 className="p-2 border-b-2 border-yellow pt-0 text-center bg-transparent w-[50px]"
-                onChange={event => setMes(event.target.valueAsNumber)}
-                value={mes}
+                onChange={event => setExpiryMonth(event.target.valueAsNumber)}
+                value={expiryMonth}
                 min="0"
                 placeholder="mês:"
               />
               <input
                 type="number"
                 className="p-2 border-b-2 border-yellow pt-0 text-center bg-transparent w-[50px]"
-                value={ano}
-                onChange={event => setAno(event.target.valueAsNumber)}
+                value={expiryYear}
+                onChange={event => setExpiryYear(event.target.valueAsNumber)}
                 min="0"
-                placeholder="ano:"
+                placeholder="expiryYear:"
               />
             </div>
 
@@ -415,8 +434,8 @@ export function Compra(){
         <input
           type="number"
           className="p-2 border-b-2 border-yellow bg-transparent  w-[300px]"
-          value={codigoSegurança}
-          onChange={event => setCodigoSegurança(event.target.valueAsNumber)}
+          value={securityCode}
+          onChange={event => setSecurityCode(event.target.valueAsNumber)}
           min="0"
           placeholder="Código de segurança:"
         />
@@ -433,12 +452,13 @@ export function Compra(){
 
       { FormValid ?
 
-        <button
+        <div
+          onClick={stateTemplate}
           className="
           border-yellow border-2 bg-clip-text text-lg font-bold text-transparent
           bg-gradient-to-r from-yellow to-amber-600 px-10 py-2 rounded-full">
         COMPRAR
-        </button>
+        </div>
 
       :
 

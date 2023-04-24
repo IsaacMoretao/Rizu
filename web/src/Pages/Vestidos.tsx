@@ -23,7 +23,6 @@ interface Dresses {
 export function Vestidos(){
 
   const [ items, setItems ] = useState<Dresses[]>([]);
-  const [ notItem, setNotItem] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3333/dresses/find')
@@ -38,7 +37,7 @@ export function Vestidos(){
     <main className='flex flex-col justify-center items-center main background'>
       {items.length == 0 ?
 
-        <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
+        <span className='flex flex-col justify-center items-center'>
           <img src={Sorriso} alt="" />
           Não há nenhum item em estoque.
         </span>
