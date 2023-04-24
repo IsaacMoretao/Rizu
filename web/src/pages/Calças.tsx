@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Produto } from './../components/Produto';
 import Sorriso from '../assets/icon-sorriso.png'
@@ -44,10 +43,12 @@ export function Calças(){
 
   return(
     <main className='flex flex-col justify-center items-center main background'>
+
       <span style={{ display: notItem}} className='flex flex-col justify-center items-center'>
-        <img src={Sorriso} alt="" />
+        <img src={Sorriso}/>
         Não há nenhum item em estoque.
       </span>
+
       {items.map (item => {
         return (
           <div key={item.id} className='w-full'>

@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import X from "../../assets/letra-x.png"
+import X from "../../assets/letra-x.png";
 import { api } from "../../lib/axios";
 
 interface IUpdatePart {

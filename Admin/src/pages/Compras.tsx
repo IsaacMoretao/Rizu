@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Comprados } from './../components/Comprados';
+import { PurchasedItem } from '../components/Templates/PurchasedItem';
 
 interface IResponse {
   partId: string;
@@ -44,35 +45,36 @@ export function Compra(){
 
   }, []) 
 
-  console.log(items)
-
   return(
-    <div className="center page flex-col gap-5">
-      {items.map (item => {
-        return (
-          <Comprados
-            ProductUrl={"sdfsdf"}
-            Code={'PINKB'}
-            Endereço={item.address}
-            EndereçoNum={item.number}
-            name={item.nameOnCard}
-            quantitGG={item.quantitGG}
-            quantitP={item.quantitP}
-            quantitPP={item.quantitPP}
-            quantitG={item.quantitG}
-            quantitM={item.quantitM}
-            quantitI={item.quantitI}
-            quantitII={item.quantitII}
-            quantitIII={item.quantitIII}
-            quantitIIII={item.quantitIIII}
-            quantitV={item.quantitV}
-            quantitIV={item.quantitIV}
-            quantitIIV={item.quantitIIV}
-            quantitIIIV={item.quantitIIIV}
-            quantitIIIIV={item.quantitIIIIV}
-          />
-        )
-      })}
-    </div>
+    <>
+      <div className="center page flex-col gap-5">
+        {items.map (item => {
+          return (
+            <Comprados
+              ProductUrl={"sdfsdf"}
+              Code={'PINKB'}
+              Endereço={item.address}
+              EndereçoNum={item.number}
+              name={item.nameOnCard}
+              quantitGG={item.quantitGG}
+              quantitP={item.quantitP}
+              quantitPP={item.quantitPP}
+              quantitG={item.quantitG}
+              quantitM={item.quantitM}
+              quantitI={item.quantitI}
+              quantitII={item.quantitII}
+              quantitIII={item.quantitIII}
+              quantitIIII={item.quantitIIII}
+              quantitV={item.quantitV}
+              quantitIV={item.quantitIV}
+              quantitIIV={item.quantitIIV}
+              quantitIIIV={item.quantitIIIV}
+              quantitIIIIV={item.quantitIIIIV}
+            />
+          )
+        })}
+      </div>
+      <PurchasedItem id={''} state={''} setState={undefined}/>
+    </>
   )
 }

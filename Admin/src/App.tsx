@@ -15,6 +15,7 @@ import { Vestidos } from "./pages/Vestidos";
 import { Acessorios } from "./pages/acessórios";
 import { useAuth } from "./hooks/useAuth";
 import { Compra } from "./pages/Compras";
+import { PurchasedItem } from "./components/Templates/PurchasedItem";
 
 
 function App() {
