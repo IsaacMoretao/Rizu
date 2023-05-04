@@ -75,8 +75,8 @@ export function PurchasedItem(props: IPurchasedItem){
   }
 
   const Tamanhos = [
-    props.quantityPP?
-    props.quantityP
+    props.quantityPP,
+    props.quantityP,
     props.quantityM,
     props.quantityG,
     props.quantityGG,

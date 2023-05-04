@@ -7,52 +7,70 @@ import { useNavigate } from "react-router-dom";
 
 
 interface Acessories {
-  id: string,
-  code: string,
-  title: string,
-  description: string,
-  pieceUrl: string,
-  tipe: string,
+  id: string;
+  code: string;
+  title: string;
+  description: string;
+  pieceUrl: string;
+  tipe: string;
 
-  priceInCents: number,
-  quantityPP?: number,
-  quantityP?: number,
-  quantityM?: number,
-  quantityG?: number,
-  quantityGG?: number,
+  priceInCents: number;
+  quantityPP?: number;
+  quantityP?: number;
+  quantityM?: number;
+  quantityG?: number;
+  quantityGG?: number;
 
-  quantityI?: number,
-  quantityII?: number,
-  quantityIII?: number,
-  quantityIIII?: number,
-  quantityV?: number,
-  quantityIV?: number,
-  quantityIIV?: number,
-  quantityIIIV?: number,
-  quantityIIIIV?: number,
+  quantityI?: number;
+  quantityII?: number;
+  quantityIII?: number;
+  quantityIIII?: number;
+  quantityV?: number;
+  quantityIV?: number;
+  quantityIIV?: number;
+  quantityIIIV?: number;
+  quantityIIIIV?: number;
+
+  purchasePP?: number;
+  purchaseP?: number;
+  purchaseM?: number;
+  purchaseG?: number;
+  purchaseGG?: number;
+
+  purchaseI?: number;
+  purchaseII?: number;
+  purchaseIII?: number;
+  purchaseIIII?: number;
+  purchaseV?: number;
+  purchaseIV?: number;
+  purchaseIIV?: number;
+  purchaseIIIV?: number;
+  purchaseIIIIV?: number;
 
 }
+
+
 
 export function Compra(){
 
   const[state, setState] = useState("none");
 
-  const [quantityPP, setQuantityPP] = useState<number | undefined>();
-  const [quantityP, setQuantityP] = useState<number | undefined>();
-  const [quantityM, setQuantityM] = useState<number | undefined>();
-  const [quantityG, setQuantityG] = useState<number | undefined>();
-  const [quantityGG, setQuantityGG] = useState<number | undefined>();
+  const [purchasePP, setPurchasePP] = useState<number | undefined>();
+  const [purchaseP, setPurchaseP] = useState<number | undefined>();
+  const [purchaseM, setPurchaseM] = useState<number | undefined>();
+  const [purchaseG, setPurchaseG] = useState<number | undefined>();
+  const [purchaseGG, setPurchaseGG] = useState<number | undefined>();
 
-  const [quantityI, setQuantityI] = useState<number | undefined>();
-  const [quantityII, setQuantityII] = useState<number | undefined>();
-  const [quantityIII, setQuantityIII] = useState<number | undefined>();
-  const [quantityIIII, setQuantityIIII] = useState<number | undefined>();
+  const [purchaseI, setPurchaseI] = useState<number | undefined>();
+  const [purchaseII, setPurchaseII] = useState<number | undefined>();
+  const [purchaseIII, setPurchaseIII] = useState<number | undefined>();
+  const [purchaseIIII, setPurchaseIIII] = useState<number | undefined>();
 
-  const [quantityV, setQuantityV] = useState<number | undefined>();
-  const [quantityIV, setQuantityIV] = useState<number | undefined>();
-  const [quantityIIV, setQuantityIIV] = useState<number | undefined>();
-  const [quantityIIIV, setQuantityIIIV] = useState<number | undefined>();
-  const [quantityIIIIV, setQuantityIIIIV] = useState<number | undefined>();
+  const [purchaseV, setPurchaseV] = useState<number | undefined>();
+  const [purchaseIV, setPurchaseIV] = useState<number | undefined>();
+  const [purchaseIIV, setPurchaseIIV] = useState<number | undefined>();
+  const [purchaseIIIV, setPurchaseIIIV] = useState<number | undefined>();
+  const [purchaseIIIIV, setPurchaseIIIIV] = useState<number | undefined>();
 
   const [gmail, setGmail] = useState("");
   const [address, setAddress] = useState("");
@@ -79,28 +97,29 @@ export function Compra(){
     .then(response => response.json())
     .then((data) => setItems(data.FindAll));
   }, []);
+  console.log(items?.quantityPP)
 
-  async function createNewUser(event: FormEvent) {
+  async function RealizarCompra(event: FormEvent) {
     event.preventDefault()
 
-    await api.post(`/makepurchase/`, {
+    await api.post(`/makepurchase/${partId}`, {
       partId,
-      quantityPP,
-      quantityP,
-      quantityM,
-      quantityG,
-      quantityGG,
+      quantityPP: purchasePP,
+      quantityP: purchaseP,
+      quantityM: purchaseM,
+      quantityG: purchaseG,
+      quantityGG: purchaseGG,
 
-      quantityI,
-      quantityII,
-      quantityIII,
-      quantityIIII,
+      quantityI: purchaseI,
+      quantityII: purchaseII,
+      quantityIII: purchaseIII,
+      quantityIIII: purchaseIIII,
 
-      quantityV,
-      quantityIV,
-      quantityIIV,
-      quantityIIIV,
-      quantityIIIIV,
+      quantityV: purchaseV,
+      quantityIV: purchaseIV,
+      quantityIIV: purchaseIIV,
+      quantityIIIV: purchaseIIIV,
+      quantityIIIIV: purchaseIIIIV,
 
       gmail,
       address,
@@ -119,11 +138,40 @@ export function Compra(){
 
     });
 
+      await api.put(`/item/${partId}`, {
+  
+        quantityPP: items?.quantityPP? - purchasePP? ,
+
+        quantityP,
+        quantityM,
+        quantityG,
+        quantityGG,
+
+        quantityI,
+        quantityII,
+        quantityIII,
+        quantityIIII,
+  
+        quantityV,
+        quantityIV,
+        quantityIIV,
+        quantityIIIV,
+        quantityIIIIV,
+
+      })
+      .then(response => {
+        alert(response.data);
+  
+      })
+      .catch(Response.error)
+        
+      alert('Funcionou!!!')
+
   }
 
-  const UmItem = quantityPP || quantityP || quantityM || quantityG || quantityGG ||
-  quantityI || quantityII || quantityIII || quantityIIII || quantityV || quantityIV ||
-  quantityIIV || quantityIIIV || quantityIIIIV 
+  const UmItem = purchasePP || purchaseP || purchaseM || purchaseG || purchaseGG ||
+  purchaseI || purchaseII || purchaseIII || purchaseIIII || purchaseV || purchaseIV ||
+  purchaseIIV || purchaseIIIV || purchaseIIIIV 
 
   const FormValid = gmail && address && number && cardNumber && expiryMonth && expiryYear && securityCode && holderSCpf && UmItem
 
@@ -156,108 +204,108 @@ export function Compra(){
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityPP}
-            max={items?.quantityPP}
+            value={purchasePP}
+            max={items?.purchasePP}
             min="0"
-            onChange={event => setQuantityPP(event.target.valueAsNumber)}
+            onChange={event => setPurchasePP(event.target.valueAsNumber)}
             placeholder="PP:"
           />
           :
           <></>
         }
 
-        {items?.quantityP?
+        {items?.purchaseP?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityP}
-            max={items?.quantityP}
+            value={purchaseP}
+            max={items?.purchaseP}
             min="0"
-            onChange={event => setQuantityP(event.target.valueAsNumber)}
+            onChange={event => setPurchaseP(event.target.valueAsNumber)}
             placeholder="P:"
           />
           :
           <></>
         }
 
-        {items?.quantityM?
+        {items?.purchaseM?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityM}
-            max={items?.quantityM}
+            value={purchaseM}
+            max={items?.purchaseM}
             min="0"
-            onChange={event => setQuantityM(event.target.valueAsNumber)}
+            onChange={event => setPurchaseM(event.target.valueAsNumber)}
             placeholder="M:"
           />
           :
           <></>
         }
 
-        {items?.quantityG?
+        {items?.purchaseG?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityG}
-            max={items?.quantityG}
+            value={purchaseG}
+            max={items?.purchaseG}
             min="0"
-            onChange={event => setQuantityG(event.target.valueAsNumber)}
+            onChange={event => setPurchaseG(event.target.valueAsNumber)}
             placeholder="G:"
           />
           :
           <></>
         }
 
-        {items?.quantityGG?
+        {items?.purchaseGG?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityGG}
-            max={items?.quantityGG}
+            value={purchaseGG}
+            max={items?.purchaseGG}
             min="0"
-            onChange={event => setQuantityGG(event.target.valueAsNumber)}
+            onChange={event => setPurchaseGG(event.target.valueAsNumber)}
             placeholder="GG:"
           />
           :
           <></>
         }
 
-        {items?.quantityI?
+        {items?.purchaseI?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityI}
-            max={items?.quantityI}
+            value={purchaseI}
+            max={items?.purchaseI}
             min="0"
-            onChange={event => setQuantityI(event.target.valueAsNumber)}
+            onChange={event => setPurchaseI(event.target.valueAsNumber)}
             placeholder="38:"
           />
           :
           <></>
         }
 
-        {items?.quantityII?
+        {items?.purchaseII?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityII}
-            max={items?.quantityII}
+            value={purchaseII}
+            max={items?.purchaseII}
             min="0"
-            onChange={event => setQuantityII(event.target.valueAsNumber)}
+            onChange={event => setPurchaseII(event.target.valueAsNumber)}
             placeholder="40:"
           />
           :
           <></>
         }
 
-        {items?.quantityIII?
+        {items?.purchaseIII?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityIII}
-            max={items?.quantityIII}
+            value={purchaseIII}
+            max={items?.purchaseIII}
             min="0"
-            onChange={event => setQuantityIII(event.target.valueAsNumber)}
+            onChange={event => setPurchaseIII(event.target.valueAsNumber)}
             placeholder="42:"
           />
           :
@@ -265,14 +313,14 @@ export function Compra(){
         }
 
         
-        {items?.quantityIIII?
+        {items?.purchaseIIII?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityIIII}
-            max={items?.quantityIIII}
+            value={purchaseIIII}
+            max={items?.purchaseIIII}
             min="0"
-            onChange={event => setQuantityIIII(event.target.valueAsNumber)}
+            onChange={event => setPurchaseIIII(event.target.valueAsNumber)}
             placeholder="44:"
           />
           :
@@ -280,70 +328,70 @@ export function Compra(){
         }
 
         
-        {items?.quantityV?
+        {items?.purchaseV?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityV}
-            max={items?.quantityV}
+            value={purchaseV}
+            max={items?.purchaseV}
             min="0"
-            onChange={event => setQuantityV(event.target.valueAsNumber)}
+            onChange={event => setPurchaseV(event.target.valueAsNumber)}
             placeholder="46:"
           />
           :
           <></>
         }
 
-        {items?.quantityIV?
+        {items?.purchaseIV?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityIV}
-            max={items?.quantityIV}
+            value={purchaseIV}
+            max={items?.purchaseIV}
             min="0"
-            onChange={event => setQuantityIV(event.target.valueAsNumber)}
+            onChange={event => setPurchaseIV(event.target.valueAsNumber)}
             placeholder="48:"
           />
           :
           <></>
         }
 
-        {items?.quantityIIV?
+        {items?.purchaseIIV?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityIIV}
-            max={items?.quantityIIV}
+            value={purchaseIIV}
+            max={items?.purchaseIIV}
             min="0"
-            onChange={event => setQuantityIIV(event.target.valueAsNumber)}
+            onChange={event => setPurchaseIIV(event.target.valueAsNumber)}
             placeholder="50:"
           />
           :
           <></>
         }
 
-        {items?.quantityIIIV?
+        {items?.purchaseIIIV?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityIIIV}
-            max={items?.quantityIIIV}
+            value={purchaseIIIV}
+            max={items?.purchaseIIIV}
             min="0"
-            onChange={event => setQuantityIIIV(event.target.valueAsNumber)}
+            onChange={event => setPurchaseIIIV(event.target.valueAsNumber)}
             placeholder="52:"
           />
           :
           <></>
         }
 
-        {items?.quantityIIIIV?
+        {items?.purchaseIIIIV?
           <input
             type="number"
             className="p-2 border-b-2 border-yellow text-center bg-transparent w-[50px]"
-            value={quantityIIIIV}
-            max={items?.quantityIIIIV}
+            value={purchaseIIIIV}
+            max={items?.purchaseIIIIV}
             min="0"
-            onChange={event => setQuantityIIIIV(event.target.valueAsNumber)}
+            onChange={event => setPurchaseIIIIV(event.target.valueAsNumber)}
             placeholder="54:"
           />
           :
@@ -498,7 +546,7 @@ export function Compra(){
         state={state}
         setState={setState}
         title={`${items?.title}`}
-        function={createNewUser}
+        function={RealizarCompra}
       />
 
     </>

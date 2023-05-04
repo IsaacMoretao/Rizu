@@ -15,6 +15,8 @@ interface IRequest {
   tipe: string;
 }
 
+
+
 export class UpdateShirtUseCase {
   async execute({
     id,

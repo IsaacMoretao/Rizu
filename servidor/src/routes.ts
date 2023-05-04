@@ -44,6 +44,7 @@ import { UpdateDressesController } from "./modules/ClothingParts/Dresses/useCase
 
 import { UpdateBlousesController } from "./modules/ClothingParts/Blouses/useCases/Update/UpdateBlousesController";
 import { UpdateAcessoriesController } from "./modules/ClothingParts/Accessories/useCases/Update/UpdateAcessoriesController";
+import { PutAllPartsController } from "./modules/ClothingParts/AllParts/useCases/PutAllParts/PutAllPartsController";
 
 const routes = Router();
 
@@ -81,6 +82,7 @@ const updateDressesController = new UpdateDressesController();
 
 const updateBlousesController = new UpdateBlousesController();
 const updateAcessoriesController = new UpdateAcessoriesController();
+const putAllPartsController = new PutAllPartsController();
 
 
 // <!-- <POST /> -->
@@ -128,6 +130,6 @@ routes.put('/Update/Dresses/:id', updateDressesController.update);
 
 routes.put('/Update/Blouses/:id', updateBlousesController.update);
 routes.put('/Update/Acessories/:id', updateAcessoriesController.update);
-
+routes.put('/item/:id', putAllPartsController.update )
 
 export { routes }
